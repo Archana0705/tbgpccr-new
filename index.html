@@ -1,0 +1,2461 @@
+<!DOCTYPE html>
+<html class="no-js  page-1 app-TGBPCCR183" lang="en">
+
+<head>
+  <meta http-equiv="x-ua-compatible" content="IE=edge" />
+  <meta charset="utf-8">
+  <title>TGBPCCR</title>
+  <!-- <base href="/ords/" /> -->
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <link rel="stylesheet" type="text/css" href="assets/css/Core.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/Theme-Standard.min.css">
+  <link rel="stylesheet" href="assets/css/font-apex.min.css" type="text/css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/Core-theme.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/custom.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/aos.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/theme.css">
+  <link rel="apple-touch-icon" href="assets/img/app-icon-192.png" />
+  <link rel="icon" href="assets/img/app-icon-32.png" />
+  <style>
+    /* hide all submenus by default; use !important to override inline display styles */
+    #t_MenuNav li>ul {
+      display: none !important;
+    }
+
+    /* show submenu when its parent LI has .open */
+    #t_MenuNav li.open>ul {
+      display: block !important;
+      text-decoration: none;
+      list-style-type: none;
+    }
+
+    #t_MenuNav li.open>ul>li {
+      display: block !important;
+      text-decoration: none;
+    }
+
+    /* arrow styling and rotate on open */
+    .menu-arrow {
+      cursor: pointer;
+      margin-left: 6px;
+      font-size: 0.85em;
+      user-select: none;
+      transition: transform .18s ease;
+    }
+
+    #t_MenuNav li.open>a .menu-arrow {
+      transform: rotate(180deg);
+    }
+  </style>
+
+  <style type="text/css">
+    /* .menu-arrow {
+      cursor: pointer;
+      font-size: 12px;
+      margin-left: 6px;
+      user-select: none;
+    }
+
+    .a-MenuBar-item ul {
+      display: none;
+      list-style: none;
+      margin: 0;
+      padding-left: 15px;
+    }
+
+    .a-MenuBar-item.open>ul {
+      display: block !important;
+    } */
+
+    button.t-Button.js-ignoreChange {
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, 50%);
+      padding: 30px;
+      font-weight: 600;
+      background-color: var(--shade2);
+      color: var(--background);
+      transition: all .3s ease;
+      border-radius: 100px;
+      font-size: 14px;
+    }
+
+    input#screenReaderSwitch {
+      display: none;
+    }
+
+    .js-ignoreChange:hover {
+      padding: 30px 100px !important;
+      background-color: var(--background) !important;
+      border-radius: 20px !important;
+      color: var(--shade1) !important;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, .486) !important;
+    }
+
+    .container1 .row {
+      margin: 0;
+    }
+
+    button.nav-link {
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: center;
+      padding: 5px 11px;
+      position: relative;
+      color: var(--ut-tabs-item-text-color, var(--ut-link-text-color));
+      background-color: var(--ut-tabs-item-background-color);
+    }
+
+    button.nav-link.active {
+      color: #056ac8 !important;
+      font-weight: 500;
+      border: 0;
+      border-bottom: 2px solid #056ac8 !important;
+    }
+
+    .nav-tabs .nav-link:focus,
+    .nav-tabs .nav-link:hover {
+      isolation: isolate;
+      border-color: transparent !important;
+    }
+
+    .a-CardView-media--fit .a-CardView-mediaImg {
+      -o-object-fit: contain;
+      object-fit: fill;
+      width: 100%;
+      border: 5px;
+      border-radius: 10px;
+    }
+
+    .a-CardView-media--square:before,
+    .a-CardView-media--widescreen:before {
+      content: "";
+      display: block;
+      width: 100%;
+    }
+
+    .a-CardView-media--widescreen:before {
+      padding-block-start: 56.25%;
+    }
+
+    .a-CardView-media {
+      align-items: center;
+      justify-content: center;
+    }
+
+    .a-CardView {
+      min-width: 0;
+      transition: color .2s ease, background-color .2s ease, border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+    }
+
+    .a-CardView-mainContent,
+    .a-CardView-subContent,
+    .a-CardView-subTitle,
+    .a-CardView-title {
+      word-break: break-word;
+      -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+      hyphens: auto;
+      color: #333;
+    }
+
+    .a-CardView-body {
+      justify-content: space-around;
+      color: #333;
+      background-color: #bbbdb8ab;
+      padding: 8px;
+      border-radius: 3px;
+      margin-bottom: 2px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .imgshow h3,
+    .imgshow h4 {
+      color: #fff !important;
+    }
+
+    .imgshow .a-CardView {
+      display: flex;
+      float: left;
+      width: 100%;
+      margin-bottom: 16px;
+      border: 0;
+      border-radius: 10px;
+      flex-direction: row;
+      background-color: #00805a;
+      color: #fff !important;
+    }
+
+    .imgshow .a-CardView-items li {
+      font-size: inherit;
+      line-height: inherit;
+      display: flex;
+      float: left;
+      width: 100%;
+      margin-bottom: 16px;
+      border: 0;
+      border-radius: 10px;
+    }
+
+    .imgshow .a-CardView-media {
+      align-items: center;
+      justify-content: start !important;
+    }
+
+    .imgshow #officialsList img.img-fluid {
+      object-fit: contain;
+      aspect-ratio: 2 / 2;
+      width: 100px;
+      margin: 2px;
+      border-radius: 10px;
+    }
+
+    .imgshow #officialsList img.img-fluid {
+      width: 100px;
+      height: 125PX;
+      object-fit: contain;
+    }
+
+    @font-face {
+      font-family: 'FontApex';
+      src: url('../font/apex-5-icon-font.woff2') format('woff2'),
+        url('../font/apex-5-icon-font.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Font-APEX';
+      src: url('../fonts/Font-APEX-Small.woff2') format('woff2'),
+        url('../fonts/Font-APEX-Small.woff') format('woff'),
+        url('../fonts/Font-APEX-Large.woff2') format('woff2'),
+        url('../fonts/Font-APEX-Large.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    .t-Header-nav {
+      background-color: rgba(250, 235, 215, 0);
+    }
+
+    .t-Header-navBar {
+      background-color: rgb(255 255 255);
+    }
+
+    t-Tabs-link {
+      font-variant: petite-caps;
+    }
+
+    #COUNTS1 {
+      font-size: 17px;
+      text-align: start;
+      border: 2px;
+      border-radius: 10px black;
+      padding: 10px;
+      margin: 10px;
+    }
+
+    #COUNTS2 {
+      font-size: 17px;
+      text-align: end;
+      border: 2px;
+      border-radius: 10px black;
+      padding: 10px;
+      margin: 10px;
+    }
+
+    .card {
+      border: 5px solid #ddd;
+      border-radius: 5px;
+      padding: 20px;
+      width: 500px;
+      /* Adjust the card width as needed */
+      height: 300px;
+      /* Adjust the card height as needed */
+      overflow: hidden;
+    }
+
+    .card-content {
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .custom-link-column a {
+      color: blue;
+      /* Set the desired link color */
+      text-decoration: underline;
+      /* Add underline to the link */
+    }
+
+    #marquee {
+      overflow: hidden;
+      white-space: nowrap;
+      width: 100%;
+      /* Adjust the width as needed */
+      display: inline-block;
+      animation: marquee-scroll 10s linear infinite;
+      /* Adjust the animation properties as needed */
+    }
+
+    @keyframes marquee-scroll {
+      from {
+        transform: translateX(100%);
+      }
+
+      to {
+        transform: translateX(-100%);
+      }
+    }
+  </style>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="-1" />
+  <meta http-equiv="Cache-Control" content="no-cache" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body
+  class="t-PageBody t-PageBody--hideLeft t-PageBody--hideActions no-anim t-PageTemplate--standard   apex-top-nav apex-icons-fontapex apex-theme-vita-standard"
+  id="t_PageBody">
+  <a href="#main" id="t_Body_skipToContent">Skip to Main Content</a>
+  <img id="backgroundVideo" src="assets/img/bg-home.jpg">
+  <form role="none" action="wwv_flow.accept?p_context=tgbpccr183/home/3172755877641" method="post" name="wwv_flow"
+    id="wwvFlowForm" data-oj-binding-provider="none" novalidate autocomplete="off">
+    <input type="hidden" name="p_flow_id" value="113" id="pFlowId" /><input type="hidden" name="p_flow_step_id"
+      value="1" id="pFlowStepId" /><input type="hidden" name="p_instance" value="3172755877641" id="pInstance" /><input
+      type="hidden" name="p_page_submission_id" value="331340122574643732403270367539902121984"
+      id="pPageSubmissionId" /><input type="hidden" name="p_request" value="" id="pRequest" /><input type="hidden"
+      name="p_reload_on_submit" value="S" id="pReloadOnSubmit" /><input type="hidden"
+      value="tgbpccr183&#x2F;home&#x2F;3172755877641" id="pContext" /><input type="hidden"
+      value="331340122574643732403270367539902121984" id="pSalt" />
+
+    <header class="t-Header" id="t_Header" role="banner">
+      <div class="t-Header-nav">
+        <div class="t-Header-nav-list js-tabLike js-tabLike" id="t_MenuNav">
+          <ul>
+            <li class="a-MenuBar-item a-Menu--current home-padding" data-key="menu-home" data-current="true">
+              <a class="a-MenuBar-label" href="index.html">Home</a>
+            </li>
+            <li class="a-MenuBar-item">
+              <a class="a-MenuBar-label navigate-link" href="index.html#about" data-key="menu-about">About us </a>
+            </li>
+            <li class="a-MenuBar-item">
+              <a class="a-MenuBar-label" href="#" data-key="menu-project">JICA Projects <span
+                  class="menu-arrow">&#9660;</span></a>
+              <ul class="sub-menu-projects" style="position: absolute;
+              padding-top: 50px;">
+                <li><a href="genesis.html" data-key="menu-genesis">Genesis</a></li>
+                <li><a href="tap-i-ii.html" data-key="menu-Tap">TAP(I &amp; II)</a></li>
+                <li><a href="tbgp1.html" data-key="menu-tgbp">TBGP</a></li>
+              </ul>
+            </li>
+            <li class="a-MenuBar-item">
+              <a class="a-MenuBar-label" href="#" data-key="menu-tgbpccr">TBGPCCR</a>
+              <ul class="sub-menu-projects" style="position: absolute;
+               padding-top: 50px;">
+                <li><a href="overview.html" data-key="menu-overview">Overview</a></li>
+                <li>
+                  <a href="#" data-key="menu-activities">Activities</a>
+                  <ul style="display: none">
+                    <li><a href="ecosystem-based-climate-change-measures.html" data-key="sub-menu-ecosystem">Ecosystem
+                        Based Climate Change Measures</a></li>
+                    <li><a href="human-wildlife-conflict-measures.html" data-key="sub-menu-human-wildlife">Human
+                        Wildlife conflict measures</a></li>
+                    <li><a href="promoting-supply-chain-development.html"
+                        data-key="sub-menu-promoting-supply-chain">Promoting Supply Chain development</a></li>
+                    <li><a href="livelihood-improvement-activities.html" data-key="sub-menu-livelihood">Livelihood
+                        improvement activities</a></li>
+                    <li><a href="management-capacity-development.html"
+                        data-key="sub-menu-management-capacity">Management capacity development</a></li>
+                  </ul>
+                </li>
+                <li><a href="achievements-at-a-glance.html" data-key="menu-achievements">Achievements At a Glance</a>
+                </li>
+                <li><a href="milestones-at-2032.html" data-key="menu-milestones">Milestones By 2032</a></li>
+              </ul>
+            </li>
+            <li class="a-MenuBar-item">
+              <a class="a-MenuBar-label" href="tenders-advts.html" data-key="menu-tender&advertisement">Tenders &amp;
+                Advts</a>
+            </li>
+            <li class="a-MenuBar-item">
+              <a class="a-MenuBar-label" href="events.html" data-key="menu-events">Events</a>
+            </li>
+            <li class="a-MenuBar-item">
+              <a class="a-MenuBar-label" href="contact-us.html" data-key="menu-contactus">Contact us</a>
+            </li>
+            <li class="a-MenuBar-item">
+              <a class="a-MenuBar-label" href="grievance.html" data-key="menu-feedback">Feedback</a>
+            </li>
+            <li class="a-MenuBar-item">
+              <a class="a-MenuBar-label" href="#" data-key="menu-more">More</a>
+              <ul class="sub-menu-projects" style="position: absolute;
+              padding-top: 50px;">
+                <li><a href="publications.html" data-key="menu-publications">Publications</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="top">
+        <div class="top-bg">
+          <img id="leftlogo" data-aos="fade-down" data-aos-duration="1800" src="assets/img/left (1).png">
+          <h1 data-aos="fade-down" data-aos-duration="1800" class="dept-name text-middle">
+            TAMIL NADU BIODIVERSITY CONSERVATION AND GREENING PROJECT FOR CLIMATE CHANGE RESPONSE (TBGPCCR)
+          </h1>
+          <h3 data-aos="fade-down" data-aos-duration="1800" class="dept-name2 text-middle">
+            காலநிலை மாற்றத்திற்கான தமிழ்நாடு உயிர்ப்பன்மை பாதுகாப்பு மற்றும் பசுமையாக்குதல் திட்டம்
+          </h3>
+          <img id="rightlogo" data-aos="fade-down" data-aos-duration="800" src="assets/img/right.png">
+        </div>
+      </div>
+
+      <div class="t-Header-navBar">
+        <div class="t-Header-navBar--start">
+          <div class="gigw">
+            <li><a class="btn-decrease">A -</a></li>
+            <li><a class="btn-orig">A</a></li>
+            <li><a class="btn-increase">A +</a></li>
+            <li><a><i class="t-Icon fa fa-moon-o" id="darkmode"></i></a></li>
+            <li><a class="form-check form-switch">
+                <label class="form-check-label" for="screenReaderSwitch">
+                  <i id="sound" class="t-Icon fa fa-volume-up"></i>
+                </label>
+                <input class="form-check-input" type="checkbox" role="switch" id="screenReaderSwitch">
+              </a></li>
+          </div>
+        </div>
+        <div class="t-Header-navBar--center">
+          <ul class="t-NavigationBar">
+            <li class="t-NavigationBar-item is-active">
+              <button id="langToggle" data-key="lang-btn"
+                class="t-Button t-Button--icon t-Button--header t-Button--navBar">
+                <span class="t-Button-label">தமிழ்</span>
+              </button>
+            </li>
+            <li class="t-NavigationBar-item">
+              <a class="t-Button t-Button--icon t-Button--header t-Button--navBar" href="login.html">
+                <span class="t-Icon fa fa-user-circle"></span>
+                <span class="t-Button-label" data-key="signin">Sign In</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+
+    <div class="t-Body">
+      <div class="t-Body-main">
+        <div class="t-Body-title" id="t_Body_title"></div>
+        <div class="t-Body-content" id="t_Body_content">
+          <main id="main" class="t-Body-mainContent">
+            <span id="APEX_SUCCESS_MESSAGE" data-template-id="114898481653317674_S"
+              class="apex-page-success u-hidden"></span><span id="APEX_ERROR_MESSAGE"
+              data-template-id="114898481653317674_E" class="apex-page-error u-hidden"></span>
+            <div class="t-Body-fullContent">
+              <div class="container-fluid">
+                <div class="row ">
+                  <div class="col col-12 apex-col-auto col-start col-end">
+                    <div class="home-title">
+                      <div class="title_header" data-aos="fade-down">
+                        <h3>Welcome to TBGPCCR!</h3>
+                      </div>
+                      <h1 data-aos="fade-up" data-key="header-title" data-aos-duration="2000">TAMIL NADU BIODIVERSITY
+                        CONSERVATION AND GREENING
+                        PROJECT FOR CLIMATE CHANGE RESPONSE</h1>
+                    </div>
+                    <img id="earth" src="assets/img/earth.png">
+                  </div>
+                </div>
+                <div class="row ">
+                  <div class="col col-12 apex-col-auto col-start col-end">
+                    <div class="t-Region container1  t-Region--removeHeader js-removeLandmark t-Region--scrollBody"
+                      id="R98622271516891453" role="region" aria-label="New">
+                      <div class="t-Region-header">
+                        <div class="t-Region-headerItems t-Region-headerItems--title">
+                          <span class="t-Region-headerIcon"><span class="t-Icon " aria-hidden="true"></span></span>
+                          <h2 class="t-Region-title" id="R98622271516891453_heading" data-apex-heading>New</h2>
+                        </div>
+                        <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
+                            class="js-maximizeButtonContainer"></span></div>
+                      </div>
+                      <div class="t-Region-bodyWrap">
+                        <div class="t-Region-buttons t-Region-buttons--top">
+                          <div class="t-Region-buttons-left"></div>
+                          <div class="t-Region-buttons-right"></div>
+                        </div>
+                        <div class="t-Region-body">
+                          <div class="t-Region-orderBy"></div>
+                          <div class="container">
+                            <div class="row ">
+                              <div class="col col-12 apex-col-auto col-start col-end">
+                                <div class="t-Region z-front pad  t-Region--scrollBody" id="R98623534878891465"
+                                  role="region" aria-label="outer">
+                                  <div class="t-Region-header">
+                                    <div class="t-Region-headerItems t-Region-headerItems--title">
+                                      <span class="t-Region-headerIcon"><span class="t-Icon "
+                                          aria-hidden="true"></span></span>
+                                      <h2 class="t-Region-title" id="R98623534878891465_heading" data-apex-heading>outer
+                                      </h2>
+                                    </div>
+                                    <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
+                                        class="js-maximizeButtonContainer"></span></div>
+                                  </div>
+                                  <div class="t-Region-bodyWrap">
+                                    <div class="t-Region-buttons t-Region-buttons--top">
+                                      <div class="t-Region-buttons-left"></div>
+                                      <div class="t-Region-buttons-right"></div>
+                                    </div>
+                                    <div class="t-Region-body">
+                                      <div class="t-Region-orderBy"></div>
+                                      <div class="container">
+                                        <div class="row ">
+                                          <div class="col col-12 apex-col-auto col-start col-end">
+                                            <!-- <img id="container-dept-logo" src="r/wstbgpccr/113/files/static/v1447/right_logo.png"> -->
+                                            <img id="container-dept-logo" src="assets/img/Website_Logo3.png">
+                                            <b>
+                                              <h2 class="text-middle">TAMILNADU BIODIVERSITY CONSERVATION AND GREENING
+                                                PROJECT FOR CLIMATE CHANGE RESPONSE</h2>
+                                            </b>
+                                            <div class="container">
+                                              <div class="row ">
+                                                <div class="col col-12 apex-col-auto col-start col-end">
+                                                  <div class="t-Region t-Region--scrollBody" id="R139223140272250268"
+                                                    role="region" aria-label="Aboutus&#x20;content">
+                                                    <div class="t-Region-header">
+                                                      <div class="t-Region-headerItems t-Region-headerItems--title">
+                                                        <span class="t-Region-headerIcon"><span class="t-Icon "
+                                                            aria-hidden="true"></span></span>
+                                                        <h2 class="t-Region-title" id="R139223140272250268_heading"
+                                                          data-apex-heading>Aboutus content</h2>
+                                                      </div>
+                                                      <div class="t-Region-headerItems t-Region-headerItems--buttons">
+                                                        <span class="js-maximizeButtonContainer"></span>
+                                                      </div>
+                                                    </div>
+                                                    <div class="t-Region-bodyWrap">
+                                                      <div class="t-Region-buttons t-Region-buttons--top">
+                                                        <div class="t-Region-buttons-left"></div>
+                                                        <div class="t-Region-buttons-right"></div>
+                                                      </div>
+                                                      <div class="t-Region-body">
+                                                        <div class="t-Region-orderBy"></div>
+                                                        <a-dynamic-content region-id="R139223140272250268"
+                                                          ajax-identifier="UkVHSU9OIFRZUEV-fjEzOTIyMzE0MDI3MjI1MDI2OA&#x2F;ApD7JT2q7g3ihjoTYKnlM69j_oc1NM1NmG0Q_Eo4Zog70GCwMT64wTVmDFpbJPwS3NO61muW3t23SosVcZNrXA">
+                                                          <b></b>
+                                                          <p class="dyContent" data-key="dycontent0">
+                                                          </p>
+                                                          <p class="dyContent" data-key="dycontentheading">The PMU shall
+                                                            discharge the following
+                                                            functions:</p>
+                                                          <p class="dyContent" data-key="dycontent1">1.Incharge of the
+                                                            overall managerial
+                                                            tasks of the project</p>
+                                                          <p class="dyContent" data-key="dycontent2">2. Funds received
+                                                            from the Finance
+                                                            Department, Government of Tamilnadu will be disbursed to PMU
+                                                            directly for implementation of the project</p>
+                                                          <p class="dyContent" data-key="dycontent3">3. Financial
+                                                            management including
+                                                            compiling the expenditure statements from field officers and
+                                                            preparation and submission of reimbursement claims to JICA
+                                                          </p>
+                                                          <p class="dyContent" data-key="dycontent4">4. Monitoring,
+                                                            evaluation and preparation
+                                                            of reports like Quarterly Progress Report (QPR), Project
+                                                            Completion Report (PCR)</p>
+                                                          <p class="dyContent" data-key="dycontent5">5. Incorporating
+                                                            the detailed functions
+                                                            of the PMU in the Operational Manual of PMU</p>
+                                                          <p class="dyContent" data-key="dycontent6">The Business
+                                                            transactions of the Society
+                                                            have been done by constituting the working
+                                                            bodies, viz. the General Body and Executive Body. The
+                                                            Government had issued orders by constituting an Executive
+                                                            Body and General Body, its functions, the constitution of
+                                                            the PMU's Governing body and its functions vide
+                                                            G.O.Ms.No.109, E, CC & F (FR-6) Department dated 24.06.2022.
+                                                          </p>
+                                                          <p class="dyContent" data-key="dycontent7">The Executive Body
+                                                            will be directly
+                                                            implementing the Project through Divisional
+                                                            Management Units (DMUs) (Forest Divisions) and Range
+                                                            Management Units (RMUs) (Ranges).
+                                                            The DMUs and RMUs are not registered bodies but will remain
+                                                            as departmental entities and will receive funds from the
+                                                            Society and implement the project works. The PMU will be
+                                                            in-charge of the overall managerial tasks of the Project.
+                                                            The PMU will collate and consolidate the
+                                                            expenditure statements from divisional and field offices,
+                                                            and prepare documentation for reimbursement claims to JICA.
+                                                          </p>
+                                                        </a-dynamic-content>
+                                                      </div>
+                                                      <div class="t-Region-buttons t-Region-buttons--bottom">
+                                                        <div class="t-Region-buttons-left"></div>
+                                                        <div class="t-Region-buttons-right"></div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="t-Region-buttons t-Region-buttons--bottom">
+                                      <div class="t-Region-buttons-left"></div>
+                                      <div class="t-Region-buttons-right"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <img id="forest-sketch" data-aos="fade-down" data-aos-delay="1100" data-aos-duration="800"
+                            src="assets/img/forest-sketch.png">
+                        </div>
+                        <div class="t-Region-buttons t-Region-buttons--bottom">
+                          <div class="t-Region-buttons-left"></div>
+                          <div class="t-Region-buttons-right"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="t-Region pad container3  t-Region--removeHeader js-removeLandmark t-Region--scrollBody"
+                      id="R98622586356891456" role="region" aria-label="Who&#x20;we&#x20;are">
+                      <div class="t-Region-header">
+                        <div class="t-Region-headerItems t-Region-headerItems--title">
+                          <span class="t-Region-headerIcon"><span class="t-Icon " aria-hidden="true"></span></span>
+                          <h2 class="t-Region-title" id="R98622586356891456_heading" data-apex-heading>Who we are</h2>
+                        </div>
+                        <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
+                            class="js-maximizeButtonContainer"></span></div>
+                      </div>
+                      <div class="t-Region-bodyWrap">
+                        <div class="t-Region-buttons t-Region-buttons--top">
+                          <div class="t-Region-buttons-left"></div>
+                          <div class="t-Region-buttons-right"></div>
+                        </div>
+                        <div class="t-Region-body">
+                          <div class="t-Region-orderBy"></div>
+                          <div class="text-middle">
+                            <h2>Flagship activities</h2>
+                            <img data-aos="fade-down" data-aos-delay="300" data-aos-duration="900" id="wwr-img"
+                              src="assets/img//books.png">
+                          </div>
+                          <div class="container">
+                            <div class="row ">
+                              <div class="col col-12 apex-col-auto col-start col-end">
+                                <div class="t-Region t-Region--removeHeader js-removeLandmark t-Region--scrollBody"
+                                  id="R14181547687976101" role="region" aria-label="New">
+                                  <div class="t-Region-header">
+                                    <div class="t-Region-headerItems t-Region-headerItems--title">
+                                      <span class="t-Region-headerIcon"><span class="t-Icon "
+                                          aria-hidden="true"></span></span>
+                                      <h2 class="t-Region-title" id="R14181547687976101_heading" data-apex-heading>New
+                                      </h2>
+                                    </div>
+                                    <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
+                                        class="js-maximizeButtonContainer"></span></div>
+                                  </div>
+                                  <div class="t-Region-bodyWrap">
+                                    <div class="t-Region-buttons t-Region-buttons--top">
+                                      <div class="t-Region-buttons-left"></div>
+                                      <div class="t-Region-buttons-right"></div>
+                                    </div>
+                                    <div class="t-Region-body">
+                                      <div class="t-Region-orderBy"></div>
+                                      <div class="youtube-whoweare">
+                                        <iframe src="https://www.youtube.com/embed/FiitFGDEz8A?si=mJjpQ7L-_N3E6FhR"
+                                          title="YouTube video player" frameborder="0"
+                                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                          frameborder="0" allowfullscreen></iframe>
+                                      </div>
+                                    </div>
+                                    <div class="t-Region-buttons t-Region-buttons--bottom">
+                                      <div class="t-Region-buttons-left"></div>
+                                      <div class="t-Region-buttons-right"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="t-Region-buttons t-Region-buttons--bottom">
+                          <div class="t-Region-buttons-left"></div>
+                          <div class="t-Region-buttons-right"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row ">
+                  <div class="col col-12 apex-col-auto col-start col-end">
+                    <div class="t-Region container1  t-Region--scrollBody" id="R114926089928385231" role="region"
+                      aria-label="Officials">
+                      <div class="t-Region-header">
+                        <div class="t-Region-headerItems t-Region-headerItems--title">
+                          <span class="t-Region-headerIcon"><span class="t-Icon " aria-hidden="true"></span></span>
+                          <h2 class="t-Region-title" id="R114926089928385231_heading" data-apex-heading>Officials</h2>
+                        </div>
+                        <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
+                            class="js-maximizeButtonContainer"></span></div>
+                      </div>
+                      <div class="t-Region-bodyWrap">
+                        <div class="t-Region-buttons t-Region-buttons--top">
+                          <div class="t-Region-buttons-left"></div>
+                          <div class="t-Region-buttons-right"></div>
+                        </div>
+                        <div class="t-Region-body">
+                          <div class="t-Region-orderBy"></div>
+                          <img id="forest-sketch" src="assets/img/sketch2.png">
+                          <div class="container">
+                            <div class="row ">
+                              <div class="col col-12 apex-col-auto col-start col-end">
+                                <div class="t-Region pad  t-Region--removeHeader js-removeLandmark t-Region--scrollBody"
+                                  id="about" role="region" aria-label="Officials">
+                                  <div class="t-Region-header">
+                                    <div class="t-Region-headerItems t-Region-headerItems--title">
+                                      <span class="t-Region-headerIcon"><span class="t-Icon "
+                                          aria-hidden="true"></span></span>
+                                      <h2 class="t-Region-title" id="about_heading" data-apex-heading>Officials</h2>
+                                    </div>
+                                    <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
+                                        class="js-maximizeButtonContainer"></span></div>
+                                  </div>
+                                  <div class="t-Region-bodyWrap">
+                                    <div class="t-Region-buttons t-Region-buttons--top">
+                                      <div class="t-Region-buttons-left"></div>
+                                      <div class="t-Region-buttons-right"></div>
+                                    </div>
+                                    <div class="t-Region-body">
+                                      <div class="t-Region-orderBy"></div>
+                                      <!-- <div class="text-middle">
+                                          <img data-aos="flip-left" data-aos-duration="800" id="cm-pic" src="r/wstbgpccr/113/files/static/v1447/cm.png">
+                                          <h3>Thiru. M K Stalin</h3>
+                                          <h4>Hon'ble Chief Minister of Tamil Nadu</h4>
+                                          </div> -->
+                                      <hr>
+                                      <h2 class="text-middle">Members</h2>
+                                      <!-- <div class="container">
+                                        <div class="row ">
+                                          <div class="col col-12 apex-col-auto conatiner1 col-start col-end">
+                                            <div class="t-CardsRegion officers u-colors" id="cardText" role="region"
+                                              aria-label="About&#x20;us">
+                                              <div class="t-Region-orderBy"></div>
+                                              <div id="cardText_Cards" class="a-TMV--cards">
+                                                <ul class="a-CardView-items a-CardView-items--grid3col is-placeholder"
+                                                  aria-hidden="true">
+                                                  <li class="a-CardView-item">
+                                                    <div
+                                                      class="a-CardView has-title has-subtitle has-media has-media--first has-media--fit">
+                                                      <div class="a-CardView-media a-CardView-media--first"></div>
+                                                      <div class="a-CardView-header">
+                                                        <div class="a-CardView-headerBody">
+                                                          <h3 class="a-CardView-title"></h3>
+                                                          <h4 class="a-CardView-subTitle"></h4>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </li>
+                                                  <li class="a-CardView-item">
+                                                    <div
+                                                      class="a-CardView has-title has-subtitle has-media has-media--first has-media--fit">
+                                                      <div class="a-CardView-media a-CardView-media--first"></div>
+                                                      <div class="a-CardView-header">
+                                                        <div class="a-CardView-headerBody">
+                                                          <h3 class="a-CardView-title"></h3>
+                                                          <h4 class="a-CardView-subTitle"></h4>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </li>
+                                                  <li class="a-CardView-item">
+                                                    <div
+                                                      class="a-CardView has-title has-subtitle has-media has-media--first has-media--fit">
+                                                      <div class="a-CardView-media a-CardView-media--first"></div>
+                                                      <div class="a-CardView-header">
+                                                        <div class="a-CardView-headerBody">
+                                                          <h3 class="a-CardView-title"></h3>
+                                                          <h4 class="a-CardView-subTitle"></h4>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </li>
+                                                </ul>
+                                              </div>
+                                              <script type="text/javascript">
+                                                var gCard137227051277955727data = {
+                                                  "values": [
+                                                    [
+                                                      "11"
+                                                      , null
+                                                      , "Hon\u2019ble Forest Minister"
+                                                      , "Dr. M. Mathiventhan\t"
+                                                      , "\/ords\/r\/wstbgpccr\/tgbpccr183\/home?p0_language=en\u0026request=NATIVE%3DUkVHSU9OIFRZUEV-fjEzNzIyNzA1MTI3Nzk1NTcyNw%2FfESuoR5QbVLMSEpZ831kxwmQyLMMu-Ck-u3ZJOr0NiiBSWsrqlXZKhciqh8tywuOXOY26Mfw9Atn5QTEiPJipA\u0026session=3172755877641\u0026x01=eyJJRCI6IjExIiwiYXBleCRhdHRyJGltYWdlJHR5cGUiOiJNRURJQSJ9%2FrNiCw9uZigrzlt3yb4f5L1_chVJOwkXySrVX70--DW3mpasMmRJXF7wdkvTDnKvlXo6ap9vAb96VZvUOLgHk1Q\u0026cs=1ZiY5-0Pc4bOOJd8oVz2OAjIboWdA7olvzWEaI3YpRFZfpNa-LUQWuY8S4gmGM5vBDAsqNnp0KyE7p28FESuRIg"
+                                                      , "N"
+                                                      , "N"
+                                                      , "N"
+                                                    ]
+                                                    , [
+                                                      "22"
+                                                      , null
+                                                      , "Principal Secretary to Government"
+                                                      , "Dr. P. Senthilkumar, IAS."
+                                                      , "\/ords\/r\/wstbgpccr\/tgbpccr183\/home?p0_language=en\u0026request=NATIVE%3DUkVHSU9OIFRZUEV-fjEzNzIyNzA1MTI3Nzk1NTcyNw%2FfESuoR5QbVLMSEpZ831kxwmQyLMMu-Ck-u3ZJOr0NiiBSWsrqlXZKhciqh8tywuOXOY26Mfw9Atn5QTEiPJipA\u0026session=3172755877641\u0026x01=eyJJRCI6IjIyIiwiYXBleCRhdHRyJGltYWdlJHR5cGUiOiJNRURJQSJ9%2FWoXUgHpD-p3ZJjoJYA-iQ6KD8sOkqZiuJfCYiqFqzuMdlU1fERj9vtkSMHQrSW2cYPikrSUFdTNLEfIAoJ2kFw\u0026cs=1ZiY5-0Pc4bOOJd8oVz2OAjIboWdA7olvzWEaI3YpRFZfpNa-LUQWuY8S4gmGM5vBDAsqNnp0KyE7p28FESuRIg"
+                                                      , "N"
+                                                      , "N"
+                                                      , "N"
+                                                    ]
+                                                    , [
+                                                      "33"
+                                                      , null
+                                                      , "Chief Project Director (TBGPCCR)"
+                                                      , "Thiru. I. Anwardeen, IFS.\t"
+                                                      , "\/ords\/r\/wstbgpccr\/tgbpccr183\/home?p0_language=en\u0026request=NATIVE%3DUkVHSU9OIFRZUEV-fjEzNzIyNzA1MTI3Nzk1NTcyNw%2FfESuoR5QbVLMSEpZ831kxwmQyLMMu-Ck-u3ZJOr0NiiBSWsrqlXZKhciqh8tywuOXOY26Mfw9Atn5QTEiPJipA\u0026session=3172755877641\u0026x01=eyJJRCI6IjMzIiwiYXBleCRhdHRyJGltYWdlJHR5cGUiOiJNRURJQSJ9%2FIIYekaflzQ9KSVZZ2apIz3zNo0sHrx7TLh3r0w0GOzFHuHmyBmx3vEltAQQKG_sY5Gl3Pwzp8PJzrcbsRNNKWg\u0026cs=1ZiY5-0Pc4bOOJd8oVz2OAjIboWdA7olvzWEaI3YpRFZfpNa-LUQWuY8S4gmGM5vBDAsqNnp0KyE7p28FESuRIg"
+                                                      , "N"
+                                                      , "N"
+                                                      , "N"
+                                                    ]
+                                                    , [
+                                                      "44"
+                                                      , null
+                                                      , "Project Director (Administration \u0026 Finance) (i\/c)"
+                                                      , "Thiru. A. Periasamy, IFS.\t"
+                                                      , "\/ords\/r\/wstbgpccr\/tgbpccr183\/home?p0_language=en\u0026request=NATIVE%3DUkVHSU9OIFRZUEV-fjEzNzIyNzA1MTI3Nzk1NTcyNw%2FfESuoR5QbVLMSEpZ831kxwmQyLMMu-Ck-u3ZJOr0NiiBSWsrqlXZKhciqh8tywuOXOY26Mfw9Atn5QTEiPJipA\u0026session=3172755877641\u0026x01=eyJJRCI6IjQ0IiwiYXBleCRhdHRyJGltYWdlJHR5cGUiOiJNRURJQSJ9%2FBx1GlxjFy5ALb4pPMI1NrRyu4idnqdogNxs5lqGV_WmMV0RuRW_7zvH2yPd_FzZDssLjWSm_ZTQ4h3n_DYghgw\u0026cs=1ZiY5-0Pc4bOOJd8oVz2OAjIboWdA7olvzWEaI3YpRFZfpNa-LUQWuY8S4gmGM5vBDAsqNnp0KyE7p28FESuRIg"
+                                                      , "N"
+                                                      , "N"
+                                                      , "N"
+                                                    ]
+                                                    , [
+                                                      "55"
+                                                      , null
+                                                      , "Project Director (Biodiversity)"
+                                                      , "Thiru. Naga Sathish Gidijala, IFS,"
+                                                      , "\/ords\/r\/wstbgpccr\/tgbpccr183\/home?p0_language=en\u0026request=NATIVE%3DUkVHSU9OIFRZUEV-fjEzNzIyNzA1MTI3Nzk1NTcyNw%2FfESuoR5QbVLMSEpZ831kxwmQyLMMu-Ck-u3ZJOr0NiiBSWsrqlXZKhciqh8tywuOXOY26Mfw9Atn5QTEiPJipA\u0026session=3172755877641\u0026x01=eyJJRCI6IjU1IiwiYXBleCRhdHRyJGltYWdlJHR5cGUiOiJNRURJQSJ9%2FUdFsPsi0bucVUEZcKy_65_R79F8ffRtvxEaJB-iX27HXnsyKeMLDUe66lYkGLkrm0w9ZKmUzWr3PC9MtHRwX2A\u0026cs=1ZiY5-0Pc4bOOJd8oVz2OAjIboWdA7olvzWEaI3YpRFZfpNa-LUQWuY8S4gmGM5vBDAsqNnp0KyE7p28FESuRIg"
+                                                      , "N"
+                                                      , "N"
+                                                      , "N"
+                                                    ]
+                                                    , [
+                                                      "66"
+                                                      , null
+                                                      , "Project Director (Tree Cultivation in Private Lands)"
+                                                      , null
+                                                      , "\/ords\/r\/wstbgpccr\/tgbpccr183\/home?p0_language=en\u0026request=NATIVE%3DUkVHSU9OIFRZUEV-fjEzNzIyNzA1MTI3Nzk1NTcyNw%2FfESuoR5QbVLMSEpZ831kxwmQyLMMu-Ck-u3ZJOr0NiiBSWsrqlXZKhciqh8tywuOXOY26Mfw9Atn5QTEiPJipA\u0026session=3172755877641\u0026x01=eyJJRCI6IjY2IiwiYXBleCRhdHRyJGltYWdlJHR5cGUiOiJNRURJQSJ9%2F06_TO_TVMPXpU399LvF50uKG_oHTbOzTktX45KIoUbEx2oihzY5HaLJme1I4whUzT5oQwePNQrQVa3BwAuynNg\u0026cs=1ZiY5-0Pc4bOOJd8oVz2OAjIboWdA7olvzWEaI3YpRFZfpNa-LUQWuY8S4gmGM5vBDAsqNnp0KyE7p28FESuRIg"
+                                                      , "N"
+                                                      , "N"
+                                                      , "N"
+                                                    ]
+                                                  ]
+                                                  , "firstRow": 1
+                                                  , "moreData": false
+                                                }
+                                                  ;
+                                              </script>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div> -->
+                                      <div class="container">
+                                        <div class="row">
+                                          <div class="col col-12 apex-col-auto container1 col-start col-end imgshow">
+                                            <div class="t-CardsRegion officers u-colors" id="cardText" role="region"
+                                              aria-label="About us">
+                                              <div class="t-Region-orderBy"></div>
+                                              <div id="cardText_Cards" class="a-TMV--cards">
+                                                <ul class="a-CardView-items a-CardView-items--grid3col"
+                                                  id="officialsList">
+                                                  <!-- Cards will be populated here -->
+                                                </ul>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="t-Region-buttons t-Region-buttons--bottom">
+                                      <div class="t-Region-buttons-left"></div>
+                                      <div class="t-Region-buttons-right"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="t-Region-buttons t-Region-buttons--bottom">
+                          <div class="t-Region-buttons-left"></div>
+                          <div class="t-Region-buttons-right"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row gallery-container container1">
+                  <div class="col col-12 apex-col-auto col-start col-end">
+                    <video id="video-background" autoplay="" loop="" muted="">
+                      <source src="assets/video/tbgp-vdo.mp4" type="video/mp4">
+                    </video>
+                    <script>
+                      var video = document.getElementById("video-background");
+                      video.playbackRate = 0.3;
+                    </script>
+                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                      <tr>
+                        <td align="right"><button class="t-Button js-ignoreChange" type="button" data-bs-toggle="modal"
+                            data-bs-target=".gallery-btn"><span class="t-Button-label">Gallery and Media</span></button>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+                <div class="row ">
+                  <div class="col col-12 apex-col-auto col-start col-end">
+                    <div class="t-Region container1  t-Region--scrollBody" id="R14181910392976105" role="region"
+                      aria-label="Links">
+                      <div class="t-Region-header">
+                        <div class="t-Region-headerItems t-Region-headerItems--title">
+                          <span class="t-Region-headerIcon"><span class="t-Icon " aria-hidden="true"></span></span>
+                          <h2 class="t-Region-title" id="R14181910392976105_heading" data-apex-heading>Links</h2>
+                        </div>
+                        <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
+                            class="js-maximizeButtonContainer"></span></div>
+                      </div>
+                      <div class="t-Region-bodyWrap">
+                        <div class="t-Region-buttons t-Region-buttons--top">
+                          <div class="t-Region-buttons-left"></div>
+                          <div class="t-Region-buttons-right"></div>
+                        </div>
+                        <div class="t-Region-body">
+                          <div class="t-Region-orderBy"></div>
+                          <h3 class="text-middle"> <b>USEFUL LINKS</b></h3>
+                          <hr>
+                          <div class="container">
+                            <div class="row ">
+                              <div class="col col-12 apex-col-auto col-start col-end">
+                                <div class="t-TabsRegion pad  t-TabsRegion-mod--simple apex-tabs-region"
+                                  id="R14182054443976106">
+                                  <div class="t-TabsRegion-items">
+                                    <div data-label="DEPARTMENT&#x20;LINKS" id="SR_R14182172488976107">
+                                      <div class="t-Region t-Region--scrollBody" id="R14182172488976107" role="region"
+                                        aria-label="DEPARTMENT&#x20;LINKS">
+                                        <div class="t-Region-header">
+                                          <div class="t-Region-headerItems t-Region-headerItems--title">
+                                            <span class="t-Region-headerIcon"><span class="t-Icon "
+                                                aria-hidden="true"></span></span>
+                                            <h2 class="t-Region-title" id="R14182172488976107_heading"
+                                              data-apex-heading>DEPARTMENT LINKS</h2>
+                                          </div>
+                                          <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
+                                              class="js-maximizeButtonContainer"></span></div>
+                                        </div>
+                                        <div class="t-Region-bodyWrap">
+                                          <div class="t-Region-buttons t-Region-buttons--top">
+                                            <div class="t-Region-buttons-left"></div>
+                                            <div class="t-Region-buttons-right"></div>
+                                          </div>
+                                          <div class="t-Region-body">
+                                            <div class="t-Region-orderBy"></div>
+                                            <div class="logocontainer">
+                                              <hr>
+                                              <div class="slider">
+                                                <marquee onmouseover="this.stop()" onmouseleave="this.start()"
+                                                  scrollamount="10" direction="left" loop="1">
+                                                  <!-- <marquee onmouseover="this.stop()" onmouseleave="this.start()" scrollamount="10" direction = "left" loop = "1"> -->
+                                                  <div class="logos">
+                                                    <img class="logo-img"
+                                                      onclick="window.open('https://www.atrpollachi.com/', '_blank');"
+                                                      src="assets/img/Dep-ATR_Pollachi.jpg"
+                                                      title="Anamali Tiger Reserve">
+                                                    <img class="logo-img"
+                                                      onclick="window.open('https://arasurubber.tn.gov.in/ ', '_blank');"
+                                                      src="assets/img/Dep-Arasu-Rubber.jpg"
+                                                      title="Arasu Rubber Corporation Limited">
+                                                    <img class="logo-img"
+                                                      onclick="window.open('https://www.greentnmission.com/', '_blank');"
+                                                      src="assets/img/Dep-Green_TN_Mission.png"
+                                                      title="Green TamilNadu Mission">
+                                                    <img class="logo-img"
+                                                      onclick="window.open('https://www.icfre.org/', '_blank');"
+                                                      src="assets/img/Dep-ICFRE.png"
+                                                      title="Indian Council of Forestry Research and Education">
+                                                    <img class="logo-img"
+                                                      onclick="window.open('https://pallikaranaimarshland.org/', '_blank');"
+                                                      src="assets/img/Dep-Pallikaranai_Marshland.jpg"
+                                                      title="Pallikarani Marsh Land">
+                                                    <img class="logo-img"
+                                                      onclick="window.open('https://ifgtb.icfre.gov.in/', '_blank');"
+                                                      src="assets/img/Dep-IFGTB.png"
+                                                      title="Institute of Forest Genetics and Tree Breeding">
+                                                    <img class="logo-img"
+                                                      onclick="window.open('https://parivesh.nic.in/', '_blank');"
+                                                      src="assets/img/Dep-Parivesh.jpg" title="Parivesh">
+                                                    <img class="logo-img"
+                                                      onclick="window.open('https://www.tafcorn.tn.gov.in/', '_blank');"
+                                                      src="assets/img/Dep-TAFCORN.gif"
+                                                      title="Tamilandu Forest Plantation Corporation Limited">
+                                                    <img class="logo-img"
+                                                      onclick="window.open('http://tantea.co.in/', '_blank');"
+                                                      src="assets/img/Dep-TANTEA.jpg"
+                                                      title="Tamilnadu Tree Plantation Corporation">
+                                                    <img class="logo-img"
+                                                      onclick="window.open('https://tnbb.tn.gov.in/', '_blank');"
+                                                      src="assets/img/Dep-TNBB.jpg"
+                                                      title="Tamilnadu Biodiversity Board">
+                                                    <img class="logo-img"
+                                                      onclick="window.open('https://www.tnswa.org/', '_blank');"
+                                                      src="assets/img/Dep-TNSWA.png" title="Tamilandu Wetlands Mission">
+                                                    <img class="logo-img"
+                                                      onclick="window.open('https://www.aazp.in/', '_blank');"
+                                                      src="assets/img/Dep-aazp.png"
+                                                      title="Aringar Anna Zoological Park">
+                                                    <img class="logo-img"
+                                                      onclick="window.open('https://egreenwatch.nic.in/', '_blank');"
+                                                      src="assets/img/Dep-e-greenwatch.png" title="E-Green Watch">
+                                                    <img class="logo-img"
+                                                      onclick="window.open('https://ifs.nic.in/', '_blank');"
+                                                      src="assets/img/Dep-ifs.png" title="Indian Forest Service">
+                                                    <img class="logo-img"
+                                                      onclick="window.open('https://indianwetlands.in/', '_blank');"
+                                                      src="assets/img/Dep-indian_Wetlands.png" title="Indian Wet Lands">
+                                                    <img class="logo-img"
+                                                      onclick="window.open('https://kmtr.co.in/', '_blank');"
+                                                      src="assets/img/Dep-kmtr.jpg"
+                                                      title="Kalakad Mundanthurai Tiger Reserve">
+                                                    <img class="logo-img"
+                                                      onclick="window.open('https://ntps.nic.in/', '_blank');"
+                                                      src="assets/img/Dep-ntps.jpg"
+                                                      title="National Transit Pass System ">
+                                                    <img class="logo-img"
+                                                      onclick="window.open('https://www.tntreepedia.com/', '_blank');"
+                                                      src="assets/img/Dep-tntreepedia.png" title="Tamilnadu Treepedia">
+                                                    <img class="logo-img"
+                                                      onclick="window.open('https://tnpcb.gov.in/', '_blank');"
+                                                      src="assets/img/TNPCB.png"
+                                                      title="Tamilnadu Pollution Control Board">
+                                                    <img class="logo-img"
+                                                      onclick="window.open('hhttps://tnfd.global/', '_blank');"
+                                                      src="assets/img/TNFD.png"
+                                                      title="Taskforce on Nature-related Financial Disclosures">
+                                                    <div class="logos">
+                                                      <!-- <img class="logo-img" onclick="window.open('https://ifgtb.icfre.gov.in/', '_blank');" src="r/wstbgpccr/113/files/static/v1447/Dep-IFGTB.png">
+                                                                <img class="logo-img" onclick="window.open('https://parivesh.nic.in/', '_blank');" src="r/wstbgpccr/113/files/static/v1447/Dep-Parivesh.jpg">
+                                                                <img class="logo-img" onclick="window.open('https://www.tafcorn.tn.gov.in/', '_blank');" src="r/wstbgpccr/113/files/static/v1447/Dep-TAFCORN.gif">
+                                                                <img class="logo-img" onclick="window.open('https://tnbb.tn.gov.in/', '_blank');" src="r/wstbgpccr/113/files/static/v1447/Dep-TNBB.jpg">
+                                                                <img class="logo-img" onclick="window.open('https://www.tnswa.org/', '_blank');" src="r/wstbgpccr/113/files/static/v1447/Dep-TNSWA.png"> -->
+                                                    </div>
+                                                  </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          </marquee>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="t-Region-buttons t-Region-buttons--bottom">
+                                      <div class="t-Region-buttons-left"></div>
+                                      <div class="t-Region-buttons-right"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div data-label="INTER-DEPARTMENT&#x20;LINKS" id="SR_R14182286443976108">
+                                <div class="t-Region t-Region--scrollBody" id="R14182286443976108" role="region"
+                                  aria-label="INTER-DEPARTMENT&#x20;LINKS">
+                                  <div class="t-Region-header">
+                                    <div class="t-Region-headerItems t-Region-headerItems--title">
+                                      <span class="t-Region-headerIcon"><span class="t-Icon "
+                                          aria-hidden="true"></span></span>
+                                      <h2 class="t-Region-title" id="R14182286443976108_heading" data-apex-heading>
+                                        INTER-DEPARTMENT LINKS</h2>
+                                    </div>
+                                    <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
+                                        class="js-maximizeButtonContainer"></span></div>
+                                  </div>
+                                  <div class="t-Region-bodyWrap">
+                                    <div class="t-Region-buttons t-Region-buttons--top">
+                                      <div class="t-Region-buttons-left"></div>
+                                      <div class="t-Region-buttons-right"></div>
+                                    </div>
+                                    <div class="t-Region-body">
+                                      <div class="t-Region-orderBy"></div>
+                                      <div class="logocontainer">
+                                        <hr>
+                                        <div class="slider">
+                                          <marquee onmouseover="this.stop()" onmouseleave="this.start()"
+                                            scrollamount="10" direction="left" loop="1">
+                                            <div class="logos">
+                                              <img class="logo-img"
+                                                onclick="window.open('https://surveyofindia.gov.in/','_blank');"
+                                                src="assets/img/Survey_of_India.jpg" title="Survey of India">
+                                              <img class="logo-img"
+                                                onclick="window.open('https://ipirti.gov.in/', '_blank');"
+                                                src="assets/img/ipirti.png"
+                                                title="Indian Council of Forestry Research & Education">
+                                              <img class="logo-img"
+                                                onclick="window.open('https://rsis.ramsar.org/ris/2481', '_blank');"
+                                                src="assets/img/rsis_ramsar.png" title="Ramsar">
+                                              <img class="logo-img"
+                                                onclick="window.open(' https://tnpcb.gov.in/ ', '_blank');"
+                                                src="assets/img/TNPCB.png" title="Tamilnadu Pollution Control Board">
+                                              <img class="logo-img"
+                                                onclick="window.open('https://zsi.gov.in/', '_blank');"
+                                                src="assets/img/zsi.jpg" title="Zoological Survey of India">
+                                              <img class="logo-img"
+                                                onclick="window.open('http://envis.nic.in/', '_blank');"
+                                                src="assets/img/envis.jpg" title="Environmental Information System">
+                                              <img class="logo-img"
+                                                onclick="window.open('https://cza.nic.in/', '_blank');"
+                                                src="assets/img/cza.jpg" title="Central Zoo Authority">
+                                              <img class="logo-img"
+                                                onclick="window.open('https://moef.gov.in/moef/ ', '_blank');"
+                                                src="assets/img/moef.png" title="Ministry of Environmental Forest">
+                                              <img class="logo-img"
+                                                onclick="window.open('https://tnclimatechangemission.in/home/', '_blank');"
+                                                src="assets/img/TNCCM.jpg" title="Tamil Nadu Climate Change Mission">
+                                              <img class="logo-img"
+                                                onclick="window.open('https://www.environment.tn.gov.in/ ', '_blank');"
+                                                src="assets/img/environment.png" title="Tamilandu Environment">
+                                              <img class="logo-img"
+                                                onclick="window.open('https://rsis.ramsar.org/ris/2481', '_blank', '_blank');"
+                                                src="assets/img/rsis_ramsar.png" title="Ramsar">
+                                              <img class="logo-img"
+                                                onclick="window.open('https://www.tn.gov.in/', '_blank');"
+                                                src="assets/img/tngov.png" title="Tn Government">
+                                            </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    </marquee>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="t-Region-buttons t-Region-buttons--bottom">
+                                <div class="t-Region-buttons-left"></div>
+                                <div class="t-Region-buttons-right"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="t-Region-buttons t-Region-buttons--bottom">
+              <div class="t-Region-buttons-left"></div>
+              <div class="t-Region-buttons-right"></div>
+            </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="t-Body-contentInner">
+      <div class="container">
+        <div class="row ">
+          <div class="col col-12 apex-col-auto col-start col-end">
+            <div id="R113547833499250175" class=""></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </main>
+    <footer class="t-Footer" id="t_Footer" role="contentinfo">
+      <div class="t-Footer-body">
+        <div class="t-Footer-content">
+          <div class="container">
+            <div class="row ">
+              <div class="col col-8 apex-col-auto col-start">
+                <div class="t-Region t-Region--scrollBody" id="COUNTS1" role="region" aria-label="New">
+                  <div class="t-Region-header">
+                    <div class="t-Region-headerItems t-Region-headerItems--title">
+                      <span class="t-Region-headerIcon"><span class="t-Icon " aria-hidden="true"></span></span>
+                      <h2 class="t-Region-title" id="COUNTS1_heading" data-apex-heading>New</h2>
+                    </div>
+                    <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
+                        class="js-maximizeButtonContainer"></span></div>
+                  </div>
+                  <div class="t-Region-bodyWrap">
+                    <div class="t-Region-buttons t-Region-buttons--top">
+                      <div class="t-Region-buttons-left"></div>
+                      <div class="t-Region-buttons-right"></div>
+                    </div>
+                    <div class="t-Region-body">
+                      <div class="t-Region-orderBy"></div>
+                      <!-- <a-dynamic-content region-id="COUNTS1"
+                        ajax-identifier="UkVHSU9OIFRZUEV-fjE3MDIwMTU5MDEzNjI0Mjc0Mw&#x2F;0IzuYrKRxaZEEH46tccW4vRS1qE3hvN_YWmHyaIYxLwmuyiE1097idpoL4Ir2lmlVXqbvHQrMmtR6Omnmnw03g">
+                        Visitors count : 45
+                      </a-dynamic-content> -->
+                    </div>
+                    <div class="t-Region-buttons t-Region-buttons--bottom">
+                      <div class="t-Region-buttons-left"></div>
+                      <div class="t-Region-buttons-right"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col col-4  col-end">
+                <div
+                  class="t-Region t-Region--removeHeader js-removeLandmark t-Region--scrollBody t-Region-orderBy--end margin-left-lg"
+                  id="COUNTS2" role="region" aria-label="New">
+                  <div class="t-Region-header">
+                    <div class="t-Region-headerItems t-Region-headerItems--title">
+                      <span class="t-Region-headerIcon"><span class="t-Icon " aria-hidden="true"></span></span>
+                      <h2 class="t-Region-title" id="COUNTS2_heading" data-apex-heading>New</h2>
+                    </div>
+                    <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
+                        class="js-maximizeButtonContainer"></span></div>
+                  </div>
+                  <div class="t-Region-bodyWrap">
+                    <div class="t-Region-buttons t-Region-buttons--top">
+                      <div class="t-Region-buttons-left"></div>
+                      <div class="t-Region-buttons-right"></div>
+                    </div>
+                    <div class="t-Region-body">
+                      <div class="t-Region-orderBy"></div>
+                      <a-dynamic-content region-id="COUNTS2"
+                        ajax-identifier="UkVHSU9OIFRZUEV-fjE4NDg0MzA0NzgwNTMzMTUzNw&#x2F;d-4_GPu64bsPBCaljLt745M3r1Vymv1JDRuWez_IzlDPsIItsf1QETVOTui97oCi90UjP8tZrQXvxSlxCPbM-Q">
+                        Last updated on : 06-09-2024
+                      </a-dynamic-content>
+                    </div>
+                    <div class="t-Region-buttons t-Region-buttons--bottom">
+                      <div class="t-Region-buttons-left"></div>
+                      <div class="t-Region-buttons-right"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="t-Footer-apex">
+          <!-- <div class="t-Footer-version">Release 1.0</div>
+                    <div class="t-Footer-customize"></div>
+                     -->
+          <div class="row">
+            <div class="col text-middle">
+              <h5>Office</h5>
+              <span aria-hidden="true" class="fa fa-university fa-2x fa-lg"></span>
+              <p><span class="strng">Project Management Unit,<br>Tamil Nadu Biodiversity Conservation and Greening
+                  Project for Climate Change Response,<br>Velachery – Tambaram Main Road,<br>Vijayanagaram,
+                  Medavakkam Post,<br>Chennai – 600100.</p>
+              <div><a href="mailto:mailID@tn.gov.in" class="links">pmutbgp@gmail.com<br>pccfcpd.tbgp@tn.gov.in</a>
+              </div>
+              <!-- <div><a href="tel:0440000000" class="links"> +044 00000000</a></div> -->
+            </div>
+            <div class="col text-middle">
+              <h5>Locate us</h5>
+              <iframe class="gmap"
+                src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d124442.12934141797!2d80.09477984259678!3d12.91950988712526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x3a525ea2a79e8c57%3A0xd3be372897d20183!2sW59G%2BRV3%2C%20Velachery%20-%20Tambaram%20Main%20Road%2C%20Koot%20Road%2C%20Nanmangalam%20Reserved%20Forest%2C%20Medavakkam%2C%20Chennai%2C%20Tamil%20Nadu%20600117!3m2!1d12.9195228!2d80.17718169999999!5e0!3m2!1sen!2sin!4v1702451499715!5m2!1sen!2sin"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" view-mode="satelite">
+              </iframe>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col text-middle">
+              <img class="footer-logo" src="assets/img/right_logo.png">
+              <p>Content owned by Tamil Nadu BioDiversity Conservation and Greening Project for Climate Change
+                Response ©</p>
+            </div>
+            <div class="col text-middle">
+              <img class="footer-logo" src="assets/img/Tnega.png">
+              <p>Designed and Developed by Tamil Nadu e-Governance Agency</p>
+            </div>
+            <!-- <div class="main-footer-dtls"><p class="text-middle"><img class="footer-logo" src="r/wstbgpccr/files/static/v3/tn_logo.png"><br>Content owned by Tamil Nadu Online Gaming Authority ©</p></div>
+                      <div class="main-footer-dtls"><p class="text-middle"><img class="footer-logo" src="r/wstbgpccr/files/static/v3/tnega_logo.png"><br>Designed and Developed by Tamil Nadu e-Governance Agency</p></div> -->
+          </div>
+        </div>
+      </div>
+      <div class="t-Footer-top">
+        <a href="#top" class="t-Footer-topButton" id="t_Footer_topButton" title="Start of page"
+          aria-label="Start of page"><span class="a-Icon icon-up-chevron" aria-hidden="true"></span></a>
+      </div>
+    </footer>
+    </div>
+    </div>
+    </div>
+    <div class="t-Body-inlineDialogs" id="t_Body_inlineDialogs"></div>
+    <input type="hidden" id="pPageFormRegionChecksums" value="&#x5B;&#x5D;">
+    <input type="hidden" id="pPageItemsRowVersion" value="" /><input type="hidden" id="pPageItemsProtected"
+      value="UDBfTEFOR1VBR0U&#x2F;qOxSPnuBe0He1h6uydDfS40Ojseaq8HFc0xtNRHx1a77w68pYL8gekCDwlv43mjDGU65c8eOWtiwLSDDOEdMog" />
+  </form>
+
+  <!-- gallery -->
+  <div class="modal fade gallery-btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+      <div class="modal-content">
+        <div class="modal-header py-2">
+          <p class="modal-title">Media & Gallery</p>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body py-2">
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"
+                type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Improvement of Marine
+                ecosystems</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane"
+                type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Improvement of Land
+                ecosystems
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane"
+                type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Human Wildlife conflict
+                measures</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="disabled-tab" data-bs-toggle="tab" data-bs-target="#disabled-tab-pane"
+                type="button" role="tab" aria-controls="disabled-tab-pane" aria-selected="false">
+                Research activities</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="contact-tab1" data-bs-toggle="tab" data-bs-target="#contact-tab-pane1"
+                type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Eco-Tourism</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="contact-tab2" data-bs-toggle="tab" data-bs-target="#contact-tab-pane2"
+                type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Eco-development</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="contact-tab3" data-bs-toggle="tab" data-bs-target="#contact-tab-pane3"
+                type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Management Capacity
+                Development</button>
+            </li>
+          </ul>
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
+              tabindex="0">
+              <ul class="a-CardView-items a-CardView-items--grid ">
+                <li class="a-CardView-item " data-id="3" data-rownum="1">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg" src="assets/img/Improvement-of-Marine- ecosystems/SEA GRASS.PNG"
+                        alt="" loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">SEA GRASS</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="4" data-rownum="2">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg" src="assets/img/Improvement-of-Marine- ecosystems/DUGONG.PNG"
+                        alt="" loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">DUGONG</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="45" data-rownum="3">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Improvement-of-Marine- ecosystems/Restoration of mangroves at Tiruvarur_1.PNG"
+                        alt="" loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Restoration of mangroves at Tiruvarur</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="46" data-rownum="4">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Improvement-of-Marine- ecosystems/Restoration of mangroves at Tiruvarur_2.PNG"
+                        alt="" loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Restoration of mangroves at Tiruvarur</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="47" data-rownum="5">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Improvement-of-Marine- ecosystems/Restoration of mangroves at Tiruvarur_3.PNG"
+                        alt="" loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Restoration of mangroves at Tiruvarur</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="5" data-rownum="6">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Improvement-of-Marine- ecosystems/Under Water Survey (Sea Grass).PNG" alt=""
+                        loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Under Water Survey (Sea Grass)</div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+              <ul class="a-CardView-items a-CardView-items--grid ">
+                <li class="a-CardView-item " data-id="10" data-rownum="1">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Improvement- of-Land-ecosystems/NURSERY - SOOLAGIRI.PNG" alt="" loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">NURSERY - SOOLAGIRI</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="11" data-rownum="2">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Improvement- of-Land-ecosystems/NURSERY- TVMALAI.PNG" alt="" loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">NURSERY- TVMALAI</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="12" data-rownum="3">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Improvement- of-Land-ecosystems/NURSERY - VELLORE.PNG" alt="" loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">NURSERY - VELLORE</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="41" data-rownum="4">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Improvement- of-Land-ecosystems/Riparian belt planting in Chennai_1.PNG" alt=""
+                        loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Riparian belt planting in Chennai</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="42" data-rownum="5">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Improvement- of-Land-ecosystems/Riparian belt planting in Chennai_1.PNG" alt=""
+                        loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Riparian belt planting in Chennai</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="43" data-rownum="6">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Improvement- of-Land-ecosystems/Riparian belt planting in Chennai_3.PNG" alt=""
+                        loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Riparian belt planting in Chennai</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="44" data-rownum="7">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Improvement- of-Land-ecosystems/Denkanikottai Nursery.PNG" alt=""
+                        loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Denkanikottai Nursery</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="6" data-rownum="8">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg" src="assets/img/Improvement- of-Land-ecosystems/E-Bikes.PNG"
+                        alt="" loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">E-Bikes</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="7" data-rownum="9">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Improvement- of-Land-ecosystems/E-Bikes Distribution.PNG" alt="" loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">E-Bikes Distribution</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="8" data-rownum="10">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Improvement- of-Land-ecosystems/NURSERY JAWALAGIRI - HOSUR.PNG" alt=""
+                        loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">NURSERY JAWALAGIRI - HOSUR</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="9" data-rownum="11">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Improvement- of-Land-ecosystems/NUSERY KRISHNAGIRI.PNG" alt="" loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">NUSERY KRISHNAGIRI</div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+              <ul class="a-CardView-items a-CardView-items--grid ">
+                <li class="a-CardView-item " data-id="13" data-rownum="1">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Human-Wildlife conflict-measures/Sanamavu Hosur.PNG" alt="" loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Sanamavu Hosur</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="14" data-rownum="2">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Human-Wildlife conflict-measures/Awareness Camps at Hassanur_2.PNG" alt=""
+                        loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Awareness Camps at Hassanur</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="15" data-rownum="3">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Human-Wildlife conflict-measures/Awareness Camps at Hassanur_2.PNG" alt=""
+                        loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Awareness Camps at Hassanur</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="16" data-rownum="4">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Human-Wildlife conflict-measures/Elephant Proof Trench Kinathadi Anthiyur.PNG"
+                        alt="" loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Elephant Proof Trench Kinathadi Anthiyur</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="17" data-rownum="5">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Human-Wildlife conflict-measures/Elephant Proof Trench Urigam Hosur.PNG" alt=""
+                        loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Elephant Proof Trench Urigam Hosur</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="18" data-rownum="6">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Human-Wildlife conflict-measures/Grass land training for forest departmental staff in collaboration with FC & RI Mettupalayam.PNG"
+                        alt="" loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Grass land training for forest departmental staff in
+                        collaboration with FC &amp; RI Mettupalayam</div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab"
+              tabindex="0">
+              <ul class="a-CardView-items a-CardView-items--grid ">
+                <li class="a-CardView-item " data-id="19" data-rownum="1">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Research-activities/Conservation Assessment, Management and Prioritization (CAMP) workshop held at IFTGB, Coimbatore_1.PNG"
+                        alt="" loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Conservation Assessment, Management and Prioritization (CAMP)
+                        workshop held at IFTGB, Coimbatore</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="20" data-rownum="2">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Research-activities/Conservation Assessment, Management and Prioritization (CAMP) workshop held at IFTGB, Coimbatore_2.PNG"
+                        alt="" loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Conservation Assessment, Management and Prioritization (CAMP)
+                        workshop held at IFTGB, Coimbatore</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="21" data-rownum="3">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Research-activities/Training on Wood seasoning and Preservation at Institute of Wood Science and Technology_1.PNG"
+                        alt="" loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Training on "Wood seasoning and Preservation" at Institute of
+                        Wood Science and Technology, Bengaluru</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="22" data-rownum="4">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Research-activities/Training on Wood seasoning and Preservation at Institute of Wood Science and Technology_2.PNG"
+                        alt="" loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Training on "Wood seasoning and Preservation" at Institute of
+                        Wood Science and Technology, Bengaluru</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="23" data-rownum="5">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Research-activities/Workshop on “Medicinal plants, NTFPs, Rare, Threatened & Endangered species“ on 30th & 31st Oct.202_1.PNG"
+                        alt="" loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Workshop on “Medicinal plants, NTFPs, Rare, Threatened &amp;
+                        Endangered species“ on 30th &amp; 31st Oct.202</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="24" data-rownum="6">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Research-activities/Workshop on “Medicinal plants, NTFPs, Rare, Threatened & Endangered species“ on 30th & 31st Oct.202_2.PNG"
+                        alt="" loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Workshop on “Medicinal plants, NTFPs, Rare, Threatened &amp;
+                        Endangered species“ on 30th &amp; 31st Oct.202</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="25" data-rownum="7">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Research-activities/Workshop on “Medicinal plants, NTFPs, Rare, Threatened & Endangered species“ on 30th & 31st Oct.202_3.PNG"
+                        alt="" loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Workshop on “Medicinal plants, NTFPs, Rare, Threatened &amp;
+                        Endangered species“ on 30th &amp; 31st Oct.202</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="26" data-rownum="8">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Research-activities/Workshop on “Medicinal plants, NTFPs, Rare, Threatened & Endangered species“ on 30th & 31st Oct.202_4.PNG"
+                        alt="" loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Workshop on “Medicinal plants, NTFPs, Rare, Threatened &amp;
+                        Endangered species“ on 30th &amp; 31st Oct.202</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="27" data-rownum="9">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Research-activities/Workshop on “Medicinal plants, NTFPs, Rare, Threatened & Endangered species“ on 30th & 31st Oct.202_5.PNG"
+                        alt="" loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Workshop on “Medicinal plants, NTFPs, Rare, Threatened &amp;
+                        Endangered species“ on 30th &amp; 31st Oct.202</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="28" data-rownum="10">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Research-activities/Workshop on “Medicinal plants, NTFPs, Rare, Threatened & Endangered species“ on 30th & 31st Oct.202_6.PNG"
+                        alt="" loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Workshop on “Medicinal plants, NTFPs, Rare, Threatened &amp;
+                        Endangered species“ on 30th &amp; 31st Oct.202</div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="tab-pane fade" id="contact-tab-pane1" role="tabpanel" aria-labelledby="contact-tab"
+              tabindex="0">
+              <ul class="a-CardView-items a-CardView-items--grid ">
+                <li class="a-CardView-item " data-id="29" data-rownum="1">
+                  <div
+                    class="a-CardView has-title has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg" src="assets/img/Eco-Toursim/Beeman Waterfalls.PNG" alt=""
+                        loading="lazy">
+                    </div>
+                    <div class="a-CardView-header">
+                      <div class="a-CardView-headerBody">
+                        <h3 class="a-CardView-title ">Beeman Waterfalls.PNG</h3>
+                      </div>
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Beeman Waterfalls</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="30" data-rownum="2">
+                  <div
+                    class="a-CardView has-title has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg" src="assets/img/Eco-Toursim/Hogenakkal Falls.PNG" alt=""
+                        loading="lazy">
+                    </div>
+                    <div class="a-CardView-header">
+                      <div class="a-CardView-headerBody">
+                        <h3 class="a-CardView-title ">Hogenakkal Falls.PNG</h3>
+                      </div>
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Hogenakkal Falls</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="62" data-rownum="3">
+                  <div
+                    class="a-CardView has-title has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg" src="assets/img/Eco-Toursim/Anguthi Jonai Ecotourism Site.PNG"
+                        alt="" loading="lazy">
+                    </div>
+                    <div class="a-CardView-header">
+                      <div class="a-CardView-headerBody">
+                        <h3 class="a-CardView-title ">Anguthi Jonai Ecotourism Site.PNG</h3>
+                      </div>
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Anguthi Jonai Ecotourism Site</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="63" data-rownum="4">
+                  <div
+                    class="a-CardView has-title has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg" src="assets/img/Eco-Toursim/Anguthi Jonai Eco-Tourism site.PNG"
+                        alt="" loading="lazy">
+                    </div>
+                    <div class="a-CardView-header">
+                      <div class="a-CardView-headerBody">
+                        <h3 class="a-CardView-title ">Anguthi Jonai Eco-Tourism site.PNG</h3>
+                      </div>
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Anguthi Jonai Eco-Tourism site</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="64" data-rownum="5">
+                  <div
+                    class="a-CardView has-title has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Eco-Toursim/Mini Bridge at Jalagamparai Waterfalls.PNG" alt="" loading="lazy">
+                    </div>
+                    <div class="a-CardView-header">
+                      <div class="a-CardView-headerBody">
+                        <h3 class="a-CardView-title ">Mini Bridge at Jalagamparai Waterfalls.PNG</h3>
+                      </div>
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Mini Bridge at Jalagamparai Waterfalls</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="65" data-rownum="6">
+                  <div
+                    class="a-CardView has-title has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Eco-Toursim/Trekking shed at Kurumbapatti - Yercaud Circuit.PNG" alt=""
+                        loading="lazy">
+                    </div>
+                    <div class="a-CardView-header">
+                      <div class="a-CardView-headerBody">
+                        <h3 class="a-CardView-title ">Trekking shed at Kurumbapatti - Yercaud Circuit.PNG</h3>
+                      </div>
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Trekking shed at Kurumbapatti - Yercaud Circuit</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="66" data-rownum="7">
+                  <div
+                    class="a-CardView has-title has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Eco-Toursim/Eco-hut in Genepool Garden at Gudalur.PNG" alt="" loading="lazy">
+                    </div>
+                    <div class="a-CardView-header">
+                      <div class="a-CardView-headerBody">
+                        <h3 class="a-CardView-title ">Eco-hut in Genepool Garden at Gudalur.PNG</h3>
+                      </div>
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Eco-hut in Genepool Garden at Gudalur</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="67" data-rownum="8">
+                  <div
+                    class="a-CardView has-title has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Eco-Toursim/Eco-shop cum Canteen shed with solar light facilities - Aiyur ET circuit.PNG"
+                        alt="" loading="lazy">
+                    </div>
+                    <div class="a-CardView-header">
+                      <div class="a-CardView-headerBody">
+                        <h3 class="a-CardView-title ">Eco-shop cum Canteen shed with solar light facilities - Aiyur ET
+                          circuit.PNG</h3>
+                      </div>
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Eco-shop cum Canteen shed with solar light facilities - Aiyur
+                        ET circuit</div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="tab-pane fade" id="contact-tab-pane2" role="tabpanel" aria-labelledby="contact-tab"
+              tabindex="0">
+              <ul class="a-CardView-items a-CardView-items--grid ">
+                <li class="a-CardView-item " data-id="33" data-rownum="1">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Eco-development/Nattu Vaidyar Conference on 9th July 2023 at Attur_1.PNG" alt=""
+                        loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Nattu Vaidyar Conference on 9th July 2023 at Attur</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="34" data-rownum="2">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Eco-development/Nattu Vaidyar Conference on 9th July 2023 at Attur_2.PNG" alt=""
+                        loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Nattu Vaidyar Conference on 9th July 2023 at Attur</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="35" data-rownum="3">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Eco-development/Nattu Vaidyar Conference on 9th July 2023 at Attur_3.PNG" alt=""
+                        loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Nattu Vaidyar Conference on 9th July 2023 at Attur</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="48" data-rownum="4">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Eco-development/Ecodevelopment activities at Kathirimalai (Anthiyur), Erode_1.PNG"
+                        alt="" loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Ecodevelopment activities at Kathirimalai (Anthiyur), Erode
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="49" data-rownum="5">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Eco-development/Ecodevelopment activities at Kathirimalai (Anthiyur), Erode_2.PNG"
+                        alt="" loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Ecodevelopment activities at Kathirimalai (Anthiyur), Erode
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="50" data-rownum="6">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Eco-development/Ecodevelopment activities at Vellimalai, Villupuram.PNG" alt=""
+                        loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Ecodevelopment activities at Vellimalai, Villupuram</div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="tab-pane fade" id="contact-tab-pane3" role="tabpanel" aria-labelledby="contact-tab"
+              tabindex="0">
+              <ul class="a-CardView-items a-CardView-items--grid ">
+                <li class="a-CardView-item " data-id="36" data-rownum="1">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Management- Capacity- Development/Forester Quarters at Manapparai.PNG" alt=""
+                        loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Forester Quarters at Manapparai</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="37" data-rownum="2">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Management- Capacity- Development/Forester Range Officer Quarters at Ponnamaravathy.PNG"
+                        alt="" loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Forester Range Officer Quarters at Ponnamaravathy</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="51" data-rownum="3">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Management- Capacity- Development/Training for Anti-Poaching Watchers at Advanced Wildlife Management Training Centre at Attakatti_1.PNG"
+                        alt="" loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Training for Anti-Poaching Watchers at Advanced Wildlife
+                        Management Training Centre at Attakatti</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="52" data-rownum="4">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Management- Capacity- Development/Training for Anti-Poaching Watchers at Advanced Wildlife Management Training Centre at Attakatti_3.PNG"
+                        alt="" loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Training for Anti-Poaching Watchers at Advanced Wildlife
+                        Management Training Centre at Attakatti</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="53" data-rownum="5">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Management- Capacity- Development/Training for Anti-Poaching Watchers at Advanced Wildlife Management Training Centre at Attakatti.PNG"
+                        alt="" loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Training for Anti-Poaching Watchers at Advanced Wildlife
+                        Management Training Centre at Attakatti</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="a-CardView-item " data-id="61" data-rownum="6">
+                  <div class="a-CardView has-body has-media has-media--body has-media--widescreen has-media--fit ">
+                    <div
+                      class="a-CardView-media a-CardView-media--body a-CardView-media--widescreen a-CardView-media--fit ">
+                      <img class="a-CardView-mediaImg"
+                        src="assets/img/Management- Capacity- Development/Combined Forest Guard cum Forest Watcher Quarters at Ramnad.PNG"
+                        alt="" loading="lazy">
+                    </div>
+                    <div class="a-CardView-body">
+                      <div class="a-CardView-mainContent ">Combined Forest Guard cum Forest Watcher Quarters at Ramnad
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer py-2">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- gallery -->
+
+  <script>
+    var apex_img_dir = "\u002Fi\u002F";
+    var apex = {
+      env: { APP_USER: "nobody", APP_ID: "113", APP_PAGE_ID: "1", APP_SESSION: "3172755877641", APP_FILES: "r\u002Fwstbgpccr\u002F113\u002Ffiles\u002Fstatic\u002Fv1447\u002F", WORKSPACE_FILES: "r\u002Fwstbgpccr\u002Ffiles\u002Fstatic\u002Fv3\u002F", APEX_VERSION: "23.2.1", APEX_BASE_VERSION: "23.2" },
+      libVersions: { ckeditor5: "36.0.0", cropperJs: "1.5.13", domPurify: "3.0.5", fullcalendar: "6.1.8", hammer: "2.0.8", jquery: "3.6.4", jqueryUi: "1.13.2", maplibre: "2.4.0", markedJs: "5.1.2", prismJs: "1.29.0", oraclejet: "15.0.7", tinymce: "6.7.1", turndown: "7.1.1", monacoEditor: "0.32.1", lessJs: "4.1.3" }
+    };
+  </script>
+
+  <!-- <script type="text/javascript" src="assets/js/desktop_all.min.js"></script> -->
+  <script type="text/javascript" src="assets/js/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript" src="assets/js/aos.js"></script>
+  <!-- <script type="text/javascript" src="assets/js/widget.stickyWidget.min.js"></script>
+  <script type="text/javascript" src="assets/js/theme42.min.js"></script> -->
+  <!-- <script type="text/javascript" src="assets/js/add.min.js"></script> -->
+  <!-- 
+  <script type="text/javascript" src="assets/js/modelViewBase.min.js"></script>
+  <script type="text/javascript" src="assets/js/widget.templateReport.min.js"></script>
+  <script type="text/javascript" src="assets/js/widget.apexTabs.min.js"></script>
+ <script type="text/javascript" src="apiConfig.js"></script> -->
+
+  <script type="text/javascript" src="assets/js/language.js"></script>
+  <script type="text/javascript" src="apiConfig.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+
+  <!-- <script type="text/javascript">
+    apex.da.initDaEventList = function () {
+      apex.da.gEventList = [
+        {
+          "triggeringElementType": "BUTTON", "triggeringButtonId": "B121770109538234134", "bindType": "bind", "executionType": "IMMEDIATE", "bindEventType": "click", "anyActionsFireOnInit": false, actionList: [{
+            "eventResult": true, "executeOnPageInit": false, "stopExecutionOnError": true, javascriptFunction: function () {
+              apex.navigation.redirect('f?p=113:0:3172755877641:::NO::P0_FILE_PATH:' || 'E:\TATA-IQ' || '&P0_FILE_NAME:' || 'Form Region.js');
+            }, "action": "NATIVE_JAVASCRIPT_CODE"
+          }]
+        },
+        { "triggeringElementType": "ITEM", "triggeringElement": "P0_LANGUAGE", "bindType": "bind", "executionType": "IMMEDIATE", "bindEventType": "change", "anyActionsFireOnInit": false, actionList: [{ "eventResult": true, "executeOnPageInit": false, "stopExecutionOnError": true, "waitForResult": true, javascriptFunction: apex.da.executePlSqlCode, "ajaxIdentifier": "REEgVFlQRX5-MTEzNTQ2NjkyMzQ1MjUwMTY0\u002Fo81z81Czj6UUR1crsdFoygiginCfUlmoX2LwZtQEdbKkaId9zW-kTlQZB0F7-nx35QKcrW4QsTog6LTcUqlpqQ", "attribute04": "N", "action": "NATIVE_EXECUTE_PLSQL_CODE" }, { "eventResult": true, "executeOnPageInit": false, "stopExecutionOnError": true, javascriptFunction: apex.da.submitPage, "attribute02": "Y", "action": "NATIVE_SUBMIT_PAGE" }] },
+        {
+          "executionType": "IMMEDIATE", "bindEventType": "ready", "anyActionsFireOnInit": false, actionList: [{
+            "eventResult": true, "executeOnPageInit": false, "stopExecutionOnError": true, javascriptFunction: function () {
+              $.get(
+                "https://ipinfo.io",
+                function (response) {
+                  apex.server.process(
+                    'captureUserActivities',
+                    {
+                      X01: response.ip,
+                      X02: response.loc,
+                      X03: response.timezone,
+                      X04: response.city,
+                      X05: response.region,
+                      X06: response.country,
+                      X07: response.postal
+                    },
+                    {
+                      success: function (resData) {
+                        console.log('sucess');
+                      }
+                    }
+                  )
+
+                }, "jsonp");
+            }, "action": "NATIVE_JAVASCRIPT_CODE"
+          }]
+        }];
+    }
+  </script> -->
+
+
+
+
+  <script type="text/javascript">
+    // logocarouser
+    document.addEventListener('DOMContentLoaded', function () {
+      const logoCarousel = document.getElementById('logoCarousel');
+      const logoItems = document.querySelectorAll('.logo-item');
+      const itemsPerSlide = 35; //   Adjust this value based on your needs
+      const totalLogos = logoItems.length;
+
+      let currentIndex = 0;
+
+      function updateCarousel() {
+        const adjustedIndex = currentIndex % totalLogos;
+        const translateValue = -(adjustedIndex * (100 / itemsPerSlide));
+        // logoCarousel.style.transform = `translateX(${translateValue}%)`;
+      }
+
+      function nextSlide() {
+        currentIndex++;
+        updateCarousel();
+      }
+
+      function prevSlide() {
+        currentIndex--;
+        updateCarousel();
+      }
+
+      // Optional: Auto-play carousel
+      setInterval(nextSlide, 3000);
+
+      // // Event listeners for navigation (optional)
+      // document.getElementById('nextBtn').addEventListener('click', nextSlide);
+      // document.getElementById('prevBtn').addEventListener('click', prevSlide);
+    });
+
+  </script>
+
+  <!-- <script type="text/javascript">
+    apex.jQuery(function () {
+      apex.page.init(this, function () {
+        try {
+          (function () {
+            var e = apex.jQuery("#t_MenuNav", apex.gPageContext$);
+            if (e.hasClass("js-addActions")) {
+              apex.actions.addFromMarkup(e);
+            }
+            e.menu({
+              behaveLikeTabs: e.hasClass("js-tabLike"),
+              menubarShowSubMenuIcon: e.hasClass("js-showSubMenuIcons") || null,
+              menubar: true,
+              menubarOverflow: true,
+              callout: e.hasClass("js-menu-callout")
+            });
+          })();
+          (function () { apex.util.defineTemplates([{ "name": "APEX_CARDS_BEFORE", "template": "\u003Cul class=\u0022a-CardView-items #CARD_LAYOUT# #COMPONENT_CLASSES#\u0022\u003E\u000A", "args": [{ "name": "CARD_LAYOUT", "escape": "ATTR" }, { "name": "COMPONENT_CLASSES", "escape": "ATTR" }] }, { "name": "APEX_CARDS_CARD_137227051277955727", "template": "\u003Cli class=\u0022a-CardView-item \u0026APEX$ROW_STATE_CLASSES.\u0022 data-id=\u0022\u0026APEX$ROW_ID.\u0022 data-rownum=\u0022\u0026APEX$ROW_INDEX.\u0022\u003E\u000A\u003Cdiv class=\u0022a-CardView{if ?TITLE\u002F} has-title{endif\u002F}{if ?SUB_TITLE\u002F} has-subtitle{endif\u002F}{if ?MEDIA\u002F} has-media has-media--first has-media--fit{endif\u002F}{if APEX$ACTION_EXISTS\u002F} has-actions{endif\u002F}{if APEX$FULL_ACTION_EXISTS\u002F} has-actions--full{endif\u002F} #CARD_CLASSES#\u0022\u003E\u000A{if ?MEDIA\u002F}\u000A\u003Cdiv class=\u0022a-CardView-media #MEDIA_POSITION# #MEDIA_APPEARANCE# #MEDIA_SIZING# #MEDIA_CLASSES#\u0022\u003E\u000A\u003Cimg class=\u0022a-CardView-mediaImg\u0022 src=\u0022#MEDIA#\u0022 alt=\u0022\u0022 loading=\u0022lazy\u0022 \u002F\u003E\u003C\u002Fdiv\u003E\u000A{endif\u002F}\u000A\u003Cdiv class=\u0022a-CardView-header\u0022\u003E\u000A\u003Cdiv class=\u0022a-CardView-headerBody\u0022\u003E\u000A{if ?TITLE\u002F}\u000A\u003Ch3 class=\u0022a-CardView-title #TITLE_CLASSES#\u0022\u003E#TITLE#\u003C\u002Fh3\u003E\u000A{endif\u002F}\u000A{if ?SUB_TITLE\u002F}\u000A\u003Ch4 class=\u0022a-CardView-subTitle #SUB_TITLE_CLASSES#\u0022\u003E#SUB_TITLE#\u003C\u002Fh4\u003E\u000A{endif\u002F}\u000A\u003C\u002Fdiv\u003E\u000A\u003C\u002Fdiv\u003E\u000A\u003C\u002Fdiv\u003E\u000A\u003C\u002Fli\u003E\u000A", "args": [{ "name": "CARD_CLASSES", "escape": "ATTR" }, { "name": "MEDIA_POSITION", "escape": "ATTR" }, { "name": "MEDIA_APPEARANCE", "escape": "ATTR" }, { "name": "MEDIA_SIZING", "escape": "ATTR" }, { "name": "MEDIA_CLASSES", "escape": "ATTR" }, { "name": "MEDIA", "escape": "ATTR" }, { "name": "TITLE_CLASSES", "escape": "ATTR" }, { "name": "TITLE", "escape": "HTML" }, { "name": "SUB_TITLE_CLASSES", "escape": "ATTR" }, { "name": "SUB_TITLE", "escape": "HTML" }] }, { "name": "APEX_CARDS_AFTER", "template": "\u003C\u002Ful\u003E" }]); apex.widget.templateReportRegionInit({ "regionId": "137227051277955727", "regionStaticId": "cardText", "regionType": "Cards", "ajaxIdentifier": "UkVHSU9OIFRZUEV-fjEzNzIyNzA1MTI3Nzk1NTcyNw\u002FfESuoR5QbVLMSEpZ831kxwmQyLMMu-Ck-u3ZJOr0NiiBSWsrqlXZKhciqh8tywuOXOY26Mfw9Atn5QTEiPJipA", "itemsToSubmit": "#P0_LANGUAGE", "modelName": "cardText", "modelOptions": { "regionId": 137227051277955727, "paginationType": "progressive", "pageSize": 100, "identityField": "ID" }, "pagination": { "scroll": true, "showRange": false, "firstAndLastButtons": false, "hideSinglePage": true }, "footer": false, "hideEmptyFooter": true, "hasSize": false, "beforeTemplate": "{with\u002F}\u000ACARD_LAYOUT:=a-CardView-items--grid3col\u000ACOMPONENT_CLASSES:=\u000A{apply APEX_CARDS_BEFORE\u002F}", "recordTemplate": "{with\u002F}\u000ACARD_CLASSES:=\u000AMEDIA_POSITION:=a-CardView-media--first\u000AMEDIA_APPEARANCE:=\u000AMEDIA_SIZING:=a-CardView-media--fit\u000AMEDIA_CLASSES:=card:hover img\u000AMEDIA:=\u0026\u0022APEX$FILE_BLOB_BLOB\u0022!RAW.\u000ATITLE_CLASSES:=cardpad\u000ATITLE:=\u0026\u0022NAME\u0022!RAW.\u000ASUB_TITLE_CLASSES:=cardpad\u000ASUB_TITLE:=\u0026\u0022DESIGNATION\u0022!RAW.\u000A{apply APEX_CARDS_CARD_137227051277955727\u002F}", "afterTemplate": "{with\u002F}\u000A{apply APEX_CARDS_AFTER\u002F}", "columns": [{ "ID": { "index": 0 }, "FILE_BLOB": { "index": 1 }, "DESIGNATION": { "index": 2 }, "NAME": { "index": 3 }, "APEX$FILE_BLOB_BLOB": { "index": 4 }, "APEX$BUTTON_ACTION_EXISTS": { "index": 5 }, "APEX$FULL_ACTION_EXISTS": { "index": 6 }, "APEX$ACTION_EXISTS": { "index": 7 } }] }, gCard137227051277955727data); })();
+        } catch (e) { apex.debug.error(e) };
+        apex.item.waitForDelayLoadItems().done(function () {
+          try {
+            (function () {
+              apex.da.initDaEventList();
+              apex.da.init();
+            })();
+            apex.theme42.initializePage.noSideCol();
+
+            apex.page.warnOnUnsavedChanges();
+          } finally {
+            apex.event.trigger(apex.gPageContext$, 'apexreadyend');
+          };
+        });
+      });
+    }); apex.pwa.init({ serviceWorkerPath: '\u002Fords\u002Fr\u002Fwstbgpccr\u002Ftgbpccr183\u002Fsw.js?v=23.2.1-182959402\u0026lang=en' });
+  </script> -->
+  <script>
+    AOS.init();
+  </script>
+  <script>
+    function initMenuArrows() {
+      const nav = document.getElementById('t_MenuNav');
+      if (!nav) return;
+
+      nav.querySelectorAll('a').forEach(a => {
+        const submenu = a.nextElementSibling;
+        if (submenu && submenu.tagName.toLowerCase() === 'ul') {
+          if (!a.querySelector('.menu-arrow')) {
+            const arrow = document.createElement('span');
+            arrow.className = 'menu-arrow';
+            arrow.innerHTML = '&#9660;'; // ▼
+            a.appendChild(arrow);
+          }
+
+          a.onclick = function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleMenuForAnchor(a);
+          };
+        }
+      });
+
+      document.addEventListener('click', closeAllMenus);
+
+      function toggleMenuForAnchor(a) {
+        const li = a.closest('li');
+        if (!li) return;
+        li.parentElement.querySelectorAll('li.open').forEach(sib => {
+          if (sib !== li) sib.classList.remove('open');
+        });
+        li.classList.toggle('open');
+      }
+
+      function closeAllMenus() {
+        nav.querySelectorAll('li.open').forEach(li => li.classList.remove('open'));
+      }
+    }
+
+  </script>
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      // Handle click event for links with class 'navigate-link'
+      $('.navigate-link').on('click', function (e) {
+        // Add a class 'active-link' when clicked
+        $(this).addClass('active-link');
+
+        // Check if the href contains an ID to navigate within the page
+        const href = $(this).attr('href');
+        const splitHref = href.split('#');
+        const targetPage = splitHref[0]; // 'index.html'
+        const targetID = splitHref[1];   // 'about'
+
+        // Check if we're already on the same page and prevent default action
+        if (window.location.pathname.endsWith(targetPage)) {
+          e.preventDefault();
+
+          // Smooth scroll to the target div
+          $('html, body').animate({
+            scrollTop: $('#' + targetID).offset().top
+          }, 1000); // Adjust scrolling speed (1000ms = 1 second)
+        }
+      });
+    });
+
+  </script>
+  <script>
+    $(document).ready(function () {
+      let fontSize = 16;  // Default font size in pixels
+      let changeCount = 0;
+      const maxChanges = 2;  // Max 2 times increase or decrease
+      const defaultFontSize = fontSize; // Save the default font size
+
+      // Function to apply the new font size to specific HTML tags
+      function applyFontSize(size) {
+        const tags = 'p, i, a, li, h1, h2, h3, h4, h5, h6, span, small';
+        $(tags).css('font-size', size + 'px');
+      }
+
+      // Decrease Font Size
+      $('.btn-decrease').click(function () {
+        if (changeCount > -maxChanges) {
+          fontSize -= 2; // Decrease font size by 2px
+          applyFontSize(fontSize);
+          changeCount--;
+        }
+      });
+
+      // Increase Font Size
+      $('.btn-increase').click(function () {
+        if (changeCount < maxChanges) {
+          fontSize += 2; // Increase font size by 2px
+          applyFontSize(fontSize);
+          changeCount++;
+        }
+      });
+
+      // Reset to Default Font Size
+      $('.btn-orig').click(function () {
+        fontSize = defaultFontSize; // Reset font size to the original
+        applyFontSize(fontSize);
+        changeCount = 0; // Reset the change counter
+      });
+    });
+  </script>
+
+  <script>
+    $(document).ready(function () {
+      // Check localStorage for dark mode preference
+      if (localStorage.getItem('darkmode') === 'enabled') {
+        $('body').addClass('darkmode');
+      }
+
+      // Toggle dark mode when icon is clicked
+      $('#darkmode').click(function () {
+        $('body').toggleClass('darkmode');
+
+        // Store the dark mode state in localStorage
+        if ($('body').hasClass('darkmode')) {
+          localStorage.setItem('darkmode', 'enabled');
+        } else {
+          localStorage.setItem('darkmode', 'disabled');
+        }
+      });
+    });
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      // API endpoint for fetching officials' details
+      const apiUrl = `${BASE_API_URL}/officials/details`;
+
+      $.ajax({
+        url: apiUrl,
+        method: "GET",
+        success: function (data) {
+          const officialsList = $("#officialsList");
+
+          data.forEach(official => {
+            const fileType = official.file_type.split('/')[0];
+            const cardHtml = `
+              <li class="">
+                <div class="a-CardView has-title has-subtitle has-media has-media--first has-media--fit">
+                  <div class="a-CardView-media a-CardView-media--first">
+                    <img src="${BASE_API_URL}/officials/download/${fileType}/${official.id}" alt="${official.name}" class="img-fluid" />
+                  </div>
+                  <div class="a-CardView-header">
+                    <div class="a-CardView-headerBody">
+                      <h3 class="a-CardView-title">${official.name}</h3>
+                      <h4 class="a-CardView-subTitle">${official.designation}</h4>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            `;
+
+            officialsList.append(cardHtml);
+          });
+        },
+        error: function (error) {
+          console.error("Error fetching data:", error);
+        }
+      });
+    });
+  </script>
+  <script>
+    $(document).ready(function () {
+      $('.a-MenuBar-label').on('click', function (event) {
+        event.preventDefault();
+
+        // Remove 'a-Menu--current' class and 'data-current="true"' attribute from all items
+        $('.a-MenuBar-item').removeClass('a-Menu--current').attr('data-current', 'false');
+
+        // Add 'a-Menu--current' class and 'data-current="true"' attribute to the clicked item's parent
+        $(this).closest('.a-MenuBar-item').addClass('a-Menu--current').attr('data-current', 'true');
+      });
+    });
+
+  </script>
+</body>
+
+</html>
