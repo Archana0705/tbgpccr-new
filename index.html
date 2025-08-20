@@ -1255,13 +1255,13 @@
                       <div class="t-Region-buttons-left"></div>
                       <div class="t-Region-buttons-right"></div>
                     </div>
-                    <div class="t-Region-body">
+                    <!-- <div class="t-Region-body">
                       <div class="t-Region-orderBy"></div>
                       <a-dynamic-content region-id="COUNTS2"
                         ajax-identifier="UkVHSU9OIFRZUEV-fjE4NDg0MzA0NzgwNTMzMTUzNw&#x2F;d-4_GPu64bsPBCaljLt745M3r1Vymv1JDRuWez_IzlDPsIItsf1QETVOTui97oCi90UjP8tZrQXvxSlxCPbM-Q">
-                        Last updated on : 06-09-2024
+                         
                       </a-dynamic-content>
-                    </div>
+                    </div> -->
                     <div class="t-Region-buttons t-Region-buttons--bottom">
                       <div class="t-Region-buttons-left"></div>
                       <div class="t-Region-buttons-right"></div>
@@ -2433,39 +2433,47 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script type="text/javascript">
     $(document).ready(function () {
-      // API endpoint for fetching officials' details
-      const apiUrl = `${BASE_API_URL}/officials/details`;
+      function getOfficialsData() {
+        let lang = getCurrentLang(); // 🔥 use common helper
+        const apiUrl = `${BASE_API_URL}/officials/details/${lang}`;
 
-      $.ajax({
-        url: apiUrl,
-        method: "GET",
-        success: function (data) {
-          const officialsList = $("#officialsList");
+        $.ajax({
+          url: apiUrl,
+          method: "GET",
+          success: function (data) {
+            const officialsList = $("#officialsList");
+            officialsList.empty(); // clear old data on lang change
 
-          data.forEach(official => {
-            const fileType = official.file_type.split('/')[0];
-            const cardHtml = `
-              <li class="">
-                <div class="a-CardView has-title has-subtitle has-media has-media--first has-media--fit">
-                  <div class="a-CardView-media a-CardView-media--first">
-                    <img src="${BASE_API_URL}/officials/download/${fileType}/${official.id}" alt="${official.name}" class="img-fluid" />
-                  </div>
-                  <div class="a-CardView-header">
-                    <div class="a-CardView-headerBody">
-                      <h3 class="a-CardView-title">${official.name}</h3>
-                      <h4 class="a-CardView-subTitle">${official.designation}</h4>
-                    </div>
+            data.forEach(official => {
+              const fileType = official.file_type.split('/')[0];
+              const cardHtml = `
+            <li class="">
+              <div class="a-CardView has-title has-subtitle has-media has-media--first has-media--fit">
+                <div class="a-CardView-media a-CardView-media--first">
+                  <img src="${BASE_API_URL}/officials/download/${fileType}/${official.id}" alt="${official.name}" class="img-fluid" />
+                </div>
+                <div class="a-CardView-header">
+                  <div class="a-CardView-headerBody">
+                    <h3 class="a-CardView-title">${official.name}</h3>
+                    <h4 class="a-CardView-subTitle">${official.designation}</h4>
                   </div>
                 </div>
-              </li>
-            `;
+              </div>
+            </li>
+          `;
+              officialsList.append(cardHtml);
+            });
+          },
+          error: function (error) {
+            console.error("Error fetching data:", error);
+          }
+        });
+      }
 
-            officialsList.append(cardHtml);
-          });
-        },
-        error: function (error) {
-          console.error("Error fetching data:", error);
-        }
+      getOfficialsData();
+
+      document.addEventListener("languageChanged", function () {
+        getOfficialsData();
       });
     });
   </script>

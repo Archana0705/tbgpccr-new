@@ -87,89 +87,12 @@ const languageContent = {
     }
 };
 
-// function getCurrentLang() {
-//     return localStorage.getItem("language") || "en";
-// }
-
-// function setDefaultLang() {
-//     localStorage.setItem("language", "en");
-// }
-
-// function updateFormClassBasedOnLanguage() {
-//     const currentLang = getCurrentLang();
-//     if (currentLang === 'ta') {
-//         $('form').addClass('tamil-font');
-//     } else {
-//         $('form').removeClass('tamil-font');
-//     }
-// }
-
-// function updateLangContent() {
-//     const lang = getCurrentLang();
-//     document.querySelectorAll("[data-key]").forEach(el => {
-//         const key = el.getAttribute("data-key");
-//         if (languageContent[lang] && languageContent[lang][key]) {
-//             el.textContent = languageContent[lang][key];
-//         }
-//     });
-// }
-
-// function updateLangToggleButton() {
-//     const toggleBtn = document.getElementById("langToggle");
-//     if (toggleBtn) {
-//         const labelSpan = toggleBtn.querySelector(".t-Button-label");
-//         const currentLang = getCurrentLang();
-//         if (labelSpan) {
-//             labelSpan.textContent = currentLang === "en" ? "தமிழ்" : "English";
-//         }
-//     }
-// }
-
-// function switchLang() {
-//     debugger
-//     const currentLang = getCurrentLang();
-//     const newLang = currentLang === "en" ? "ta" : "en";
-//     localStorage.setItem("language", newLang);
-//     document.querySelectorAll("[data-key]").forEach(el => {
-//         const key = el.getAttribute("data-key");
-//         el.textContent = languageContent[currentLang][key] || el.textContent;
-//     });
-//     updateLangContent();
-// }
-
-// document.addEventListener("DOMContentLoaded", function () {
-//     localStorage.setItem("language", "en");
-
-//     updateFormClassBasedOnLanguage();
-//     updateLangContent();
-
-//     const toggleBtn = document.getElementById("langToggle");
-//     if (toggleBtn) {
-//         toggleBtn.addEventListener("click", function (e) {
-//             e.preventDefault();
-//             switchLang();
-//         });
-//     }
-
-//     document.querySelectorAll(".a-MenuBar-item a, .sub-menu-projects a").forEach(link => {
-//         link.addEventListener("click", function (e) {
-//             const submenu = this.nextElementSibling;
-//             if (submenu && submenu.tagName.toLowerCase() === "ul") {
-//                 e.preventDefault();
-//                 submenu.style.display = (submenu.style.display === "block") ? "none" : "block";
-//             }
-//         });
-//     });
-
-//     // Listen for language changes in other tabs
-//     window.addEventListener("storage", function () {
-//         updateFormClassBasedOnLanguage();
-//         updateLangContent();
-//     });
-// });
-
 function getCurrentLang() {
     return localStorage.getItem("language") || "en";
+}
+
+function setCurrentLang(lang) {
+    localStorage.setItem("language", lang);
 }
 
 function updateFormClassBasedOnLanguage() {
@@ -206,21 +129,19 @@ function updateLangToggleButton() {
 function switchLang() {
     const currentLang = getCurrentLang();
     const newLang = currentLang === "en" ? "ta" : "en";
-    localStorage.setItem("language", newLang);
+    setCurrentLang(newLang);
     updateLangContent();
     updateFormClassBasedOnLanguage();
     updateLangToggleButton();
-    initMenuArrows(); // ensure arrows are still there
+    initMenuArrows();
+    document.dispatchEvent(new CustomEvent("languageChanged", { detail: newLang }));
 }
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    // Only set default language if nothing is stored
-    let savedLang = localStorage.getItem("language");
-    savedLang = "en";
-    localStorage.setItem("language", savedLang);
+    let savedLang = getCurrentLang() || "en";
+    setCurrentLang(savedLang);
 
-    // Apply the saved/default language
     updateLangContent();
     updateFormClassBasedOnLanguage();
     updateLangToggleButton();
@@ -231,3 +152,6 @@ document.addEventListener("DOMContentLoaded", function () {
         switchLang();
     });
 });
+
+window.getCurrentLang = getCurrentLang;
+window.setCurrentLang = setCurrentLang;
