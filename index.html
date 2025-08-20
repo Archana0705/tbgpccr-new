@@ -20,6 +20,33 @@
   <link rel="apple-touch-icon" href="assets/img/app-icon-192.png" />
   <link rel="icon" href="assets/img/app-icon-32.png" />
   <style>
+    .a-MenuBar-item ul.sub-menu-projects {
+      padding-top: initial !important;
+      position: absolute;
+      top: 48px;
+      background: #ffff;
+      padding: 0px;
+      margin: 0px;
+    }
+
+    ul.sub-menu-projects li {
+      padding: 0px 30px;
+      border-bottom: 1px solid #c6c6c6;
+      padding-bottom: 5px;
+      padding-top: 5px;
+    }
+
+    .a-MenuBar-item.a-Menu--current a {
+      text-decoration: none !important;
+      border-bottom: none !important;
+      font-weight: 500;
+    }
+
+    li.open ul {
+      background: rgb(255, 255, 255) !important;
+      margin: 0px !important;
+    }
+
     /* hide all submenus by default; use !important to override inline display styles */
     #t_MenuNav li>ul {
       display: none !important;
@@ -2445,12 +2472,7 @@
   <script>
     $(document).ready(function () {
       $('.a-MenuBar-label').on('click', function (event) {
-        event.preventDefault();
-
-        // Remove 'a-Menu--current' class and 'data-current="true"' attribute from all items
         $('.a-MenuBar-item').removeClass('a-Menu--current').attr('data-current', 'false');
-
-        // Add 'a-Menu--current' class and 'data-current="true"' attribute to the clicked item's parent
         $(this).closest('.a-MenuBar-item').addClass('a-Menu--current').attr('data-current', 'true');
       });
     });
